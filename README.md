@@ -1,6 +1,3 @@
-# Sistema Funcional para Empresa de Ônibus
-
-![Logo da Empresa](link_para_logo.png)
 
 ## Descrição do Projeto
 
