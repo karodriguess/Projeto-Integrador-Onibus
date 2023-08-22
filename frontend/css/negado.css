@@ -1,31 +1,42 @@
 body {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-  }
-  
-  .success-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 200px;
-    padding-bottom: 200px;
-    background-color: rgb(236, 0, 0);
-padding-left: 80px;
-padding-right: 80px;
-  }
-  
-  .success-icon img {
-    width: 80px;
-    height: 80px;
-   padding-bottom: 50px;
-  }
-  
-  .success-message {
-    font-weight: bold;
-    font-size: 18px;
-  }
-  
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0f0;
+}
+
+.catraca {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 50px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(236, 0, 0);
+}
+
+.success-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+}
+
+.success-icon img {
+  width: 80px;
+  height: 80px;
+  padding-bottom: 20px;
+}
+
+.fail-message {
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  margin-top: 20px;
+}
