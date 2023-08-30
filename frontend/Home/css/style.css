@@ -181,6 +181,8 @@ footer p {
   .bd-mode-toggle {
     z-index: 1500;
   }
-  .section{
-    display: inline-flex;
-  }
+ 
+ul {
+  display: inline-flex;
+  gap: 90px;
+}
