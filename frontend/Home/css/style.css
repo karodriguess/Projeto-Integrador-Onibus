@@ -83,18 +83,6 @@ margin-bottom: 20px;
     height: auto;
     margin: 0 10px;
 }
-
-/* Rodapé */
-footer {
-    background-color: #212529;
-margin-top: 70px;
-    text-align: center;
-    padding: 3%;
-}
-
-footer p {
-    margin: 0;
-}
 .form-control-dark {
     border-color: var(--bs-gray);
   }
@@ -199,4 +187,44 @@ ul {
 }
 .mapa{
   text-align: center;
+}
+.bairro
+{
+text-align: center;
+padding-right: 0px;
+}
+.lista {
+  margin: 0px;
+  padding: 0px;
+}
+.footer {
+  background-color: #212529; /* Cor de fundo do footer */
+  color: #fff; /* Cor do texto no footer */
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  padding-top: 3%;
+ 
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo img {
+  width: 50px; /* Tamanho da imagem do logo */
+  height: auto;
+  margin-right: 10px; /* Espaço à direita do logo */
+  padding-left: 10%;
+}
+
+/* Estilos adicionais para tornar o footer "bonitinho" */
+.footer p {
+  margin: 0;
+  font-weight: bold;
+  padding-right: 10%;
 }
