@@ -13,14 +13,12 @@ footer{
     gap: 10px;
 }
 .container {
-    position: relative; 
-    max-width: 500px;
-    width: 700px;
+    max-width: 6000px;
+    width: 1000px;
     background:white;
-    padding: 25px;
+    padding: 40px;
+    margin-left: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
-    
   }
   
   .container header {
@@ -32,6 +30,7 @@ footer{
   
   .container .form {
     margin-top: 15px;
+    margin-left: 40px;
   }
   
   .form .input-box {
@@ -124,3 +123,6 @@ footer{
   .form button:hover {
     background: #EE3E34;
   }
+
+
+  
