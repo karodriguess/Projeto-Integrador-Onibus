@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="../../vendors/simple-line-icons/css/simple-line-icons.css">
   <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="../../css/passageiro.css">
-  <!-- <link rel="stylesheet" href="../../css/vertical-layout-light/motorista.css"> -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <!-- endinject -->
@@ -419,14 +418,13 @@
           <li class="nav-item nav-category"></li>
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-
               <i class="menu-icon mdi mdi-floor-plan"></i>
               <span class="menu-title">Linhas/Mapas</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="../ui-features/linhas.html"> Ver agora </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html">Ver agora</a></li>
               </ul>
             </div>
           </li>
@@ -436,152 +434,183 @@
 
 
 
-      <!-- formulario passageiro/tabela de listagem
+      <!-- formulario 
                  -->
+      <style>
+        .form {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          max-width: 4000px;
+          background-color: #fff;
+          padding: 40px;
+          border-radius: 20px;
+          position: relative;
+        }
 
-      <div class="wrapper">
+        .title {
+          font-size: 28px;
+          color: royalblue;
+          font-weight: 600;
+          letter-spacing: -1px;
+          position: relative;
+          display: flex;
+          align-items: center;
+          padding-left: 30px;
+        }
 
-        <section class="container">
-          <header>Novo Cadastro</header>
-          <form class="form" action="#">
-            <div class="input-box">
-              <label>Nome Completo</label>
-              <input required="" placeholder="" type="text">
-            </div>
-            <div class="column">
-              <div class="input-box">
-                <label>Email:</label>
-                <input required="" placeholder="" type="telephone">
-              </div>
-              <div class="input-box">
-                <label>Nascimento</label>
-                <input required="" placeholder="Enter birth date" type="date">
-              </div>
-            </div>
-            <div class="gender-box">
-              <label></label>
-              <div class="gender-option">
-                <div class="gender">
-                  <input checked="" name="gender" id="check-male" type="radio">
-                  <label for="check-male">F</label>
-                </div>
-                <div class="gender">
-                  <input name="gender" id="check-female" type="radio">
-                  <label for="check-female">M</label>
-                </div>
-                <div class="gender">
-                  <input name="gender" id="check-other" type="radio">
-                  <label for="check-other">Prefere não dizer</label>
-                </div>
-              </div>
-            </div>
-            <div class="input-box address">
-              <label>Endereço</label>
-              <input required="" placeholder="Rua" type="text">
-              <div class="column">
-                <div class="select-box">
-                  <select>
-                    <option hidden="">País</option>
-                    <option>Brasil</option>
-                  </select>
-                </div>
-                <input required="" placeholder="Cidade" type="text">
-              </div>
-            </div>
-            <button>Cadastrar</button>
-          </form>
-        </section>
+        .title::before,
+        .title::after {
+          position: absolute;
+          content: "";
+          height: 16px;
+          width: 16px;
+          border-radius: 50%;
+          left: 0px;
+          background-color: royalblue;
+        }
 
-        <!-- upload foto -->
-        <div style="height: 350px;
-width: 400px;
-border-radius: 10px;
-box-shadow: 2px 2px 20px rgba(0, 0, 0, .2);
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-between;
-padding: 10px;
-gap: 5px;
-margin-top: 40px;
-background-color: rgba(0, 110, 255, 0.041);" class="container">
-          <div style=" flex: 1;
-  width: 100%;
-  border: 2px dashed royalblue;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;" class="header">
-            <svg style="height: 100px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-              <g id="SVGRepo_iconCarrier">
-                <path
-                  d="M7 10V9C7 6.23858 9.23858 4 12 4C14.7614 4 17 6.23858 17 9V10C19.2091 10 21 11.7909 21 14C21 15.4806 20.1956 16.8084 19 17.5M7 10C4.79086 10 3 11.7909 3 14C3 15.4806 3.8044 16.8084 5 17.5M7 10C7.43285 10 7.84965 10.0688 8.24006 10.1959M12 12V21M12 12L15 15M12 12L9 15"
-                  stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </g>
-            </svg>
-            <p>Browse File to upload!</p>
-          </div>
-          <label for="file" class="footer" style=" background-color: rgba(0, 110, 255, 0.075);
-  width: 100%;
-  height: 40px;
-  padding: 8px;
-  border-radius: 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  color: black;
-  border: none;">
-            <svg style="height: 130%;
-    fill: royalblue;
-    background-color: rgba(70, 66, 66, 0.103);
-    border-radius: 50%;
-    padding: 2px;
-    cursor: pointer;
-    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.205);" fill="#000000" viewBox="0 0 32 32"
-              xmlns="http://www.w3.org/2000/svg">
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-              <g id="SVGRepo_iconCarrier">
-                <path d="M15.331 6H8.5v20h15V14.154h-8.169z"></path>
-                <path d="M18.153 6h-.009v5.342H23.5v-.002z"></path>
-              </g>
-            </svg>
-            <p style=" flex: 1;
-    text-align: center;">Not selected file</p>
-            <svg style="height: 130%;
-    fill: royalblue;
-    background-color: rgba(70, 66, 66, 0.103);
-    border-radius: 50%;
-    padding: 2px;
-    cursor: pointer;
-    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.205);" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-              <g id="SVGRepo_iconCarrier">
-                <path
-                  d="M5.16565 10.1534C5.07629 8.99181 5.99473 8 7.15975 8H16.8402C18.0053 8 18.9237 8.9918 18.8344 10.1534L18.142 19.1534C18.0619 20.1954 17.193 21 16.1479 21H7.85206C6.80699 21 5.93811 20.1954 5.85795 19.1534L5.16565 10.1534Z"
-                  stroke="#000000" stroke-width="2"></path>
-                <path d="M19.5 5H4.5" stroke="#000000" stroke-width="2" stroke-linecap="round"></path>
-                <path d="M10 3C10 2.44772 10.4477 2 11 2H13C13.5523 2 14 2.44772 14 3V5H10V3Z" stroke="#000000"
-                  stroke-width="2"></path>
-              </g>
-            </svg>
+        .title::before {
+          width: 18px;
+          height: 18px;
+          background-color: royalblue;
+        }
+
+        .title::after {
+          width: 18px;
+          height: 18px;
+          animation: pulse 1s linear infinite;
+        }
+
+        .message,
+        .signin {
+          color: rgba(88, 87, 87, 0.822);
+          font-size: 14px;
+        }
+
+        .signin {
+          text-align: center;
+        }
+
+        .signin a {
+          color: royalblue;
+        }
+
+        .signin a:hover {
+          text-decoration: underline royalblue;
+        }
+
+        .flex {
+          display: flex;
+          width: 100%;
+          gap: 6px;
+        }
+
+        .form label {
+          position: relative;
+        }
+
+        .form label .input {
+          width: 100%;
+          padding: 10px 10px 20px 10px;
+          outline: 0;
+          border: 1px solid rgba(105, 105, 105, 0.397);
+          border-radius: 10px;
+        }
+
+        .form label .input+span {
+          position: absolute;
+          left: 10px;
+          top: 15px;
+          color: grey;
+          font-size: 0.9em;
+          cursor: text;
+          transition: 0.3s ease;
+        }
+
+        .form label .input:placeholder-shown+span {
+          top: 15px;
+          font-size: 0.9em;
+        }
+
+        .form label .input:focus+span,
+        .form label .input:valid+span {
+          top: 30px;
+          font-size: 0.7em;
+          font-weight: 600;
+        }
+
+        .form label .input:valid+span {
+          color: green;
+        }
+
+        .submit {
+          border: none;
+          outline: none;
+          background-color: royalblue;
+          padding: 10px;
+          border-radius: 10px;
+          color: #2a52a8;
+          font-size: 16px;
+          transform: .3s ease;
+        }
+
+        .submit:hover {
+          background-color: rgb(56, 90, 194);
+        }
+
+        @keyframes pulse {
+          from {
+            transform: scale(0.9);
+            opacity: 1;
+          }
+
+          to {
+            transform: scale(1.8);
+            opacity: 0;
+          }
+        }
+      </style>
+      <form class="form">
+        <p class="title">Register </p>
+        <p class="message">Cadastre uma nova linha ao sistema</p>
+        <div class="flex">
+          <label>
+            <input required="" placeholder="" type="text" class="input">
+            <span>Linha</span>
           </label>
-          <input style=" display: none;" id="file" type="file">
+          <label>
+            <input required="" placeholder="" type="text" class="input">
+            <span>Numero</span>
+          </label>
+
+          <label>
+            <input required="" placeholder="" type="text" class="input">
+            <span>id</span>
+          </label>
         </div>
 
-      </div>
+        <label>
+          <input required="" placeholder="" type="email" class="input">
+          <span>Empresa/Operadora de trânsporte</span>
+        </label>
+
+        <label>
+          <input required="" placeholder="" type="password" class="input">
+          <span>Ponto de saida</span>
+        </label>
+        <label>
+          <input required="" placeholder="" type="password" class="input">
+          <span>Ponto de chegada</span>
+        </label>
+        <button class="submit">Adicionar</button>
+      </form>
 
     </div>
-    <!-- main-panel ends -->
   </div>
-  <!-- page-body-wrapper ends -->
   </div>
 
+  <!-- tabela -->
   <div class="acesso">
     <div class="row flex-grow">
       <div class="col-12 grid-margin stretch-card">
@@ -589,13 +618,10 @@ background-color: rgba(0, 110, 255, 0.041);" class="container">
           <div class="card-body">
             <div class="d-sm-flex justify-content-between align-items-start">
               <div>
-                <h4 class="card-title card-title-dash">Acesso</h4>
+                <h4 class="card-title card-title-dash">Linhas Ativas</h4>
                 <p class="card-subtitle card-subtitle-dash"></p>
               </div>
-              <div>
-                <button class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i
-                    class="mdi mdi-account-plus"></i>novo membro</button>
-              </div>
+
             </div>
             <div class="table-responsive  mt-1">
               <table class="table select-table">
@@ -608,7 +634,7 @@ background-color: rgba(0, 110, 255, 0.041);" class="container">
                             class="input-helper"></i></label>
                       </div>
                     </th>
-                    <th>Motoristas</th>
+                    <th>Atualizadas</th>
                     <th>Compania</th>
                     <th>Progresso</th>
                     <th>Status</th>
@@ -625,16 +651,23 @@ background-color: rgba(0, 110, 255, 0.041);" class="container">
                     </td>
                     <td>
                       <div class="d-flex ">
-                        <img src="images/faces/face1.jpg" alt="">
+                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/oaflahpk.json"
+                            trigger="hover"
+                            delay="2000"
+                            colors="primary:#4bb3fd"
+                            style="width:60px;height:60px">
+                        </lord-icon>
                         <div>
-                          <h6>Carlos Rodrigues</h6>
-                          <p>motorista</p>
+                          <h6></h6>
+                          <p>localização</p>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <h6>SmartPass</h6>
-                      <p>linha 105</p>
+                      <h6>Company name 1</h6>
+                      <p>company type</p>
                     </td>
                     <td>
                       <div>
@@ -662,21 +695,28 @@ background-color: rgba(0, 110, 255, 0.041);" class="container">
                     </td>
                     <td>
                       <div class="d-flex">
-                        <img src="images/faces/face2.jpg" alt="">
+                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/oaflahpk.json"
+                            trigger="hover"
+                            delay="2000"
+                            colors="primary:#4bb3fd"
+                            style="width:60px;height:60px">
+                        </lord-icon>
                         <div>
-                          <h6>Brenda Brooks</h6>
-                          <p>motorista</p>
+                          <h6></h6>
+                          <p>localização</p>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <h6>SmartPass</h6>
-                      <p>linha 56</p>
+                      <h6>Company name 1</h6>
+                      <p>company type</p>
                     </td>
                     <td>
                       <div>
                         <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                          <p class="text-success">72%</p>
+                          <p class="text-success">65%</p>
                           <p>85/162</p>
                         </div>
                         <div class="progress progress-md">
@@ -699,16 +739,23 @@ background-color: rgba(0, 110, 255, 0.041);" class="container">
                     </td>
                     <td>
                       <div class="d-flex">
-                        <img src="images/faces/face3.jpg" alt="">
+                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/oaflahpk.json"
+                            trigger="hover"
+                            delay="2000"
+                            colors="primary:#4bb3fd"
+                            style="width:60px;height:60px">
+                        </lord-icon>
                         <div>
-                          <h6>Oliver Amback</h6>
-                          <p>motorista</p>
+                          <h6></h6>
+                          <p>localização</p>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <h6>SmartPass</h6>
-                      <p>linha 203</p>
+                      <h6>Company name 1</h6>
+                      <p>company type</p>
                     </td>
                     <td>
                       <div>
@@ -736,21 +783,28 @@ background-color: rgba(0, 110, 255, 0.041);" class="container">
                     </td>
                     <td>
                       <div class="d-flex">
-                        <img src="images/faces/face4.jpg" alt="">
+                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/oaflahpk.json"
+                            trigger="hover"
+                            delay="2000"
+                            colors="primary:#4bb3fd"
+                            style="width:60px;height:60px">
+                        </lord-icon>
                         <div>
-                          <h6>José Alves</h6>
-                          <p>motorista </p>
+                          <h6></h6>
+                          <p>localização</p>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <h6>SmartPass</h6>
-                      <p>linha 111</p>
+                      <h6>Company name 1</h6>
+                      <p>company type</p>
                     </td>
                     <td>
                       <div>
                         <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                          <p class="text-success">12%</p>
+                          <p class="text-success">65%</p>
                           <p>85/162</p>
                         </div>
                         <div class="progress progress-md">
@@ -773,21 +827,28 @@ background-color: rgba(0, 110, 255, 0.041);" class="container">
                     </td>
                     <td>
                       <div class="d-flex">
-                        <img src="" alt="">
+                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/oaflahpk.json"
+                            trigger="hover"
+                            delay="2000"
+                            colors="primary:#4bb3fd"
+                            style="width:60px;height:60px">
+                        </lord-icon>
                         <div>
-                          <h6>Alan Roberto</h6>
-                          <p>motorista</p>
+                          <h6></h6>
+                          <p>localização</p>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <h6>SmartPass6>
-                        <p>linha 28</p>
+                      <h6>Company name 1</h6>
+                      <p>company type</p>
                     </td>
                     <td>
                       <div>
                         <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                          <p class="text-success">70%</p>
+                          <p class="text-success">65%</p>
                           <p>85/162</p>
                         </div>
                         <div class="progress progress-md">
@@ -818,6 +879,13 @@ background-color: rgba(0, 110, 255, 0.041);" class="container">
 
   <!-- container-scroller -->
   <!-- plugins:js -->
+
+
+
+
+
+
+
 
   <script src="../../vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
