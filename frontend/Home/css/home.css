@@ -1,0 +1,19 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+}
+.left{
+    background:#59378f;
+    color: white;
+    width:60%;
+    height: 100vh;
+}
+.right{
+    background: rgb(250, 246, 242);
+    width: 50%;
+    height: 100vh;
+}
