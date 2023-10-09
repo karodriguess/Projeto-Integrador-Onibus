@@ -1,0 +1,141 @@
+ @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Barlow:wght@200&family=Candal&family=Open+Sans:wght@500&family=Oxanium:wght@300;700&family=Shadows+Into+Light&display=swap');
+
+ * {
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+     font-family: 'Barlow';
+ }
+ body {
+    overflow-x: hidden;
+}
+
+ .container {
+     margin-left: 50px;
+     height: 100vh;
+ }
+section{
+    margin-top: 90px;
+}
+ .section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 63px;
+    margin-left: 40px;
+}
+.catraca{
+    float: right;
+    border-radius: 12px;
+    margin-left: 70px;
+}
+.titulo{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+section span{
+    /* border-bottom: 1px solid #054b92; */
+    border-radius: 50px;
+    background-color: #1287ca;
+    
+}
+.cabecalho{
+    border-bottom: 0.4px solid rgb(215, 215, 223);
+    width: 1250px;
+}
+section h1{
+    font-size: 2rem;
+}
+ header ul {
+     display: flex;
+     gap: 40px;
+     list-style: none;
+     padding: 10px;
+    margin-left: 150px; 
+ }
+
+ a {
+     text-decoration: none;
+ }
+
+ a:hover {
+     font-weight: 800;
+     color: #234567;
+ }
+
+ .itens {
+     display: flex;
+     width: 500px;
+     margin-top: 30px;
+     gap: 7px;
+ }
+
+ .cta {
+     position: relative;
+     display: flex;
+     text-align: center;
+     align-items: center;
+     margin: auto;
+     padding: 12px 18px; 
+     margin-left: 0;
+     margin-top: 15px;
+     transition: all 0.2s ease;
+     border: none;
+     background: none;
+ }
+
+ .cta:before {
+     content: "";
+     position: absolute;
+     top: 0;
+     left: 0;
+     display: block;
+     border-radius: 50px;
+     background: #5d94b4;
+     width: 45px;
+     height: 45px;
+     transition: all 0.3s ease;
+ }
+
+ .cta h5 {
+     position: relative;
+     font-family: "Ubuntu", sans-serif;
+     font-size: 18px;
+     font-weight: 700;
+     letter-spacing: 0.05em;
+     color: #234567;
+ }
+
+ .cta svg {
+     position: relative;
+     top: 0;
+     margin-left: 10px;
+     fill: none;
+     stroke-linecap: round;
+     stroke-linejoin: round;
+     stroke: #234567;
+     stroke-width: 2;
+     transform: translateX(-5px);
+     transition: all 0.3s ease;
+ }
+
+ .cta:hover:before {
+     width: 100%;
+     background: #63a8bd;
+ }
+
+ .cta:hover svg {
+     transform: translateX(0);
+ }
+
+ .cta:active {
+     transform: scale(0.95);
+ }
+
+ .cta h3:hover {
+     color: #234567;
+ }
+ .imagembus{
+    margin-left: 60%;
+ }
