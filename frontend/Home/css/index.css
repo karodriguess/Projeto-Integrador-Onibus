@@ -6,53 +6,66 @@
      box-sizing: border-box;
      font-family: 'Barlow';
  }
+
  body {
-    overflow-x: hidden;
-}
+     overflow-x: hidden;
+ }
 
  .container {
-     margin-left: 50px;
+     margin-left: 90px;
      height: 100vh;
  }
-section{
-    margin-top: 90px;
-}
- .section{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 63px;
-    margin-left: 40px;
-}
-.catraca{
-    float: right;
-    border-radius: 12px;
-    margin-left: 70px;
-}
-.titulo{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-section span{
-    /* border-bottom: 1px solid #054b92; */
-    border-radius: 50px;
-    background-color: #1287ca;
-    
-}
-.cabecalho{
-    border-bottom: 0.4px solid rgb(215, 215, 223);
-    width: 1250px;
-}
-section h1{
-    font-size: 2rem;
+
+ section {
+     margin-top: 90px;
+ }
+
+ .section {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     margin-top: 63px;
+     margin-left: 40px;
+ }
+
+ .img-principal {
+     float: right;
+     border-radius: 12px;
+     margin-left: 70px;
+ }
+
+ .titulo {
+     display: flex;
+     flex-direction: column;
+     gap: 20px;
+ }
+
+ section span {
+     /* border-bottom: 1px solid #054b92; */
+     border-radius: 50px;
+     background-color: #4C86F3;
+
+ }
+
+ .cabecalho {
+     border-bottom: 0.4px solid rgb(215, 215, 223);
+     width: 90%;
+     visibility: hidden;
+ }
+
+ section h1 {
+     font-size: 2rem;
+ }
+.titulo-principal{
+    visibility:hidden;
 }
  header ul {
      display: flex;
      gap: 40px;
      list-style: none;
      padding: 10px;
-    margin-left: 150px; 
+     justify-content: flex-end;
+     margin-right: 85px;
  }
 
  a {
@@ -77,12 +90,13 @@ section h1{
      text-align: center;
      align-items: center;
      margin: auto;
-     padding: 12px 18px; 
+     padding: 12px 18px;
      margin-left: 0;
      margin-top: 15px;
      transition: all 0.2s ease;
      border: none;
      background: none;
+     visibility: hidden;
  }
 
  .cta:before {
@@ -92,7 +106,7 @@ section h1{
      left: 0;
      display: block;
      border-radius: 50px;
-     background: #5d94b4;
+     background: #4C86F3;
      width: 45px;
      height: 45px;
      transition: all 0.3s ease;
@@ -122,7 +136,7 @@ section h1{
 
  .cta:hover:before {
      width: 100%;
-     background: #63a8bd;
+     background: #77a3f5;
  }
 
  .cta:hover svg {
@@ -134,8 +148,75 @@ section h1{
  }
 
  .cta h3:hover {
-     color: #234567;
+     color: #7ebdfc;
  }
- .imagembus{
-    margin-left: 60%;
+
+ .linhas{
+    text-align: center;
+    visibility: hidden;
  }
+ .linhas h2{
+    font-size: 40px;
+ }
+ .linhas p{
+    font-size: 16px;
+    color: black;
+    margin-top: 7px;
+    margin-bottom: 30px;
+ }
+ table {
+    width: 90%;
+    margin: auto auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #3e9cd3;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #3f7bc9;
+    color: white;
+}
+
+.mapa{
+    display: flex;
+    margin-top: 60px;
+    justify-content: space-around;
+    visibility: hidden;
+}
+.localizacao{
+    display: block;
+}
+
+.recarga{
+    display: flex;
+}
+
+.texto-recarga{
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
