@@ -193,14 +193,28 @@ th {
 
 .recarga{
     display: flex;
+    height: 100vh; 
+    visibility: hidden;  
 }
 
 .texto-recarga{
     display: block;
+    padding: 80px;
 }
-
-
-
+.texto-recarga h1{
+    font-size: 35px;
+    color: #0949c0;
+}
+.texto-recarga h4{
+    font-size: 24px;
+}
+.texto-recarga p{
+    margin-top: 30px;
+    font-size: 18px;
+}
+.texto-recarga img{
+    margin-top: 80px;
+}
 
 
 
