@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `pi2db`.`cliente` (
   `saldo` DECIMAL(8,2) NULL,
   `cpf` CHAR(11) NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_cliente_usuario1_idx` (`usuario_id` ASC) VISIBLE,
+  INDEX `fk_cliente_usuario1_idx` (`usuario_id` ASC) ,
   CONSTRAINT `fk_cliente_usuario1`
     FOREIGN KEY (`usuario_id`)
     REFERENCES `pi2db`.`usuario` (`id`)
@@ -95,9 +95,9 @@ CREATE TABLE IF NOT EXISTS `pi2db`.`viagem` (
   `dataPartida` DATETIME NULL,
   `dataChegada` DATETIME NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_viagem_linha1_idx` (`linha_id` ASC) VISIBLE,
-  INDEX `fk_viagem_motorista1_idx` (`motorista_id` ASC) VISIBLE,
-  INDEX `fk_viagem_onibus1_idx` (`onibus_id` ASC) VISIBLE,
+  INDEX `fk_viagem_linha1_idx` (`linha_id` ASC) ,
+  INDEX `fk_viagem_motorista1_idx` (`motorista_id` ASC) ,
+  INDEX `fk_viagem_onibus1_idx` (`onibus_id` ASC) ,
   CONSTRAINT `fk_viagem_linha1`
     FOREIGN KEY (`linha_id`)
     REFERENCES `pi2db`.`linha` (`id`)
@@ -126,8 +126,8 @@ CREATE TABLE IF NOT EXISTS `pi2db`.`embarque` (
   `tarifa` DECIMAL(8,2) NULL,
   `horario` DATETIME NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_cliente_has_viagem_viagem1_idx` (`viagem_id` ASC) VISIBLE,
-  INDEX `fk_cliente_has_viagem_cliente1_idx` (`cliente_id` ASC) VISIBLE,
+  INDEX `fk_cliente_has_viagem_viagem1_idx` (`viagem_id` ASC) ,
+  INDEX `fk_cliente_has_viagem_cliente1_idx` (`cliente_id` ASC) ,
   CONSTRAINT `fk_cliente_has_viagem_cliente1`
     FOREIGN KEY (`cliente_id`)
     REFERENCES `pi2db`.`cliente` (`id`)
