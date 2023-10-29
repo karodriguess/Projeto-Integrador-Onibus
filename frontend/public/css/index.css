@@ -202,6 +202,7 @@
    display: flex;
    height: 100vh;
    visibility: hidden;
+   justify-content: center;
  }
 
  .texto-recarga {
@@ -268,7 +269,7 @@
    flex-direction: column;
  }
 
- #btn-send {
+ .btn {
    color: white;
    background-color: #3f7bc9;
    border-radius: 10px;
@@ -543,11 +544,110 @@
  .contato {
    display: flex;
    height: 100vh;
+   visibility: hidden;
  }
- .contact-us{
-  display: block;
-  padding: 100px;
- }
- .contact-msg{
 
+ .contact-us {
+   display: block;
+   align-items: center;
+   margin-left: 10%;
+   margin-top: 130px;
  }
+
+ .contact-us h3 {
+   font-size: 2rem;
+   font-weight: 500;
+ }
+
+ .form2 {
+   --width-of-input: 200px;
+   --border-height: 1px;
+   --border-before-color: rgba(221, 221, 221, 0.39);
+   --border-after-color: #5891ff;
+   --input-hovered-color: #4985e01f;
+   position: relative;
+   width: var(--width-of-input);
+ }
+
+ /* styling of Input */
+ .input2 {
+   color: #fff;
+   font-size: 0.9rem;
+   background-color: transparent;
+   width: 100%;
+   box-sizing: border-box;
+   padding-inline: 0.5em;
+   padding-block: 0.7em;
+   border: none;
+   border-bottom: var(--border-height) solid var(--border-before-color);
+ }
+
+ /* styling of animated border */
+ .input-border {
+   position: absolute;
+   background: var(--border-after-color);
+   width: 0%;
+   height: 2px;
+   bottom: 0;
+   left: 0;
+   transition: 0.3s;
+ }
+
+ /* Hover on Input */
+ input:hover {
+   background: var(--input-hovered-color);
+   color: black;
+ }
+
+ input:focus {
+   outline: none;
+ }
+
+ input:focus~.input-border {
+   width: 100%;
+ }
+
+ .icons {
+   display: flex;
+   align-items: center;
+   margin-top: 50px;
+ }
+
+ .icons p {
+   margin-left: 12px;
+   font-size: 20px;
+ }
+
+ footer {
+   display: flex;
+   justify-content: center;
+   margin: 10px;
+   background-color: #285dc0;
+   color: rgb(253, 253, 253);
+   bottom: 0;
+   width: 100%;
+ }
+
+ footer p {
+   font-size: 14px;
+   padding: 10px;
+ }
+
+ footer a {
+   color: white;
+ }
+
+ footer a:hover {
+   color: white;
+ }
+
+ .button{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  background: white;
+  border: none;
+}

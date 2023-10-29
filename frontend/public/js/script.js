@@ -7,29 +7,26 @@ sr.reveal('.linhas', {duration:2000});
 sr.reveal('.mapa', {duration:2000});
 sr.reveal('.recarga', {duration:2000});
 sr.reveal('.formulario', {duration:2000});
+sr.reveal('.contato', {duration:2000});
 
-document.getElementById('btn-send').addEventListener('submit', function(event) {
-    event.preventDefault(); 
+
+const backToTopButton= document.querySelector('button')
+
+backToTopButton.onclick=()=>{
+    document.documentElement.scroll({
+        top: 0,
+        behavior: "smooth"
+    })
+}
+window.onscroll = ()=>{
+    backToTopButton.hidden=!(document.documentElement.scrollTop>200)}
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const msg = document.getElementById('btn');
     
-    alert('Recarga com sucesso. Aproveite seu cartão Smart!'); 
-});
-
-document.getElementById('menu').addEventListener('click', function(event) {
-    if (event.target.tagName === 'A') {
-        event.preventDefault(); // Evita o comportamento padrão do link
-
-        const targetId = event.target.getAttribute('href').substring(2); // Obtém o ID da seção alvo
-
-        const targetElement = document.getElementById(targetId); // Obtém o elemento alvo
-
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop,
-                behavior: 'smooth' // Rolagem suave
-            });
-        }
-    }
-});
-
-
+        msg.addEventListener('click', function() {
+            alert `Dados enviados com sucesso!`;
+        });
+    });
 
