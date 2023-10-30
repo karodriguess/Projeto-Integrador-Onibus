@@ -1,7 +1,7 @@
 
 ## Descrição do Projeto
 
-Este projeto integrador consiste em um sistema funcional desenvolvido para uma empresa de ônibus. O sistema visa melhorar a eficiência e a organização das operações diárias da empresa, abrangendo desde o gerenciamento de frota até a reserva de passagens.
+Este projeto integrador consiste em um sistema funcional desenvolvido para uma empresa de ônibus. 
 
 ## Funcionalidades Principais
 
@@ -19,4 +19,3 @@ Este projeto integrador consiste em um sistema funcional desenvolvido para uma e
 
 - [Kariny]
 - [Francisco]
-- [JoãoVictorPereira]
