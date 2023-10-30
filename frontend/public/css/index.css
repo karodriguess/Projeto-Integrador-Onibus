@@ -14,6 +14,8 @@
  .container {
    margin-left: 90px;
    height: 100vh;
+   background-attachment: fixed;
+   background-position: center;
  }
 
  section {
@@ -543,7 +545,7 @@
 
  .contato {
    display: flex;
-   height: 100vh;
+   height: 70vh;
    visibility: hidden;
  }
 
