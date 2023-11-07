@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+ cliente {
+  id              Int      @id @default(autoincrement())
+  cpf             String   @unique(map: "cpf_UNIQUE") @db.Char(14)
+  nomeCompleto    String   @db.VarChar(45)
+  deficiencia     Boolean  @db.Boolean
+  estudante       Boolean  @db.Boolean
+  email           String   @db.VarChar(100)
+  nascimento      DateTime @db.Date
+  senha           String   @db.VarChar(45)
+  tipoCarteirinha String   @db.VarChar(45)
+  saldo           Decimal? @default(0.00) @db.Decimal(10, 2)
+}
+
+ linha {
+  id           Int      @id @default(autoincrement())
+  nome         String   @db.VarChar(45)
+  localSaida   String   @db.VarChar(45)
+  localDestino String   @db.VarChar(45)
+  horaSaida    DateTime @db.Time(0)
+  horaChegada  DateTime @db.Time(0)
+}
+
+ motorista {
+  id           Int      @id @default(autoincrement())
+  cpf          String   @unique(map: "cpf_UNIQUE") @db.Char(14)
+  nomeCompleto String   @db.VarChar(45)
+  email        String   @db.VarChar(100)
+  nascimento   DateTime @db.Date
+}
+
+ motorista_onibus {
+  id             Int      @id @default(autoincrement())
+  data           DateTime @db.DateTime(0)
+  onibus_numero1 Int
+  motorista_id   Int
+
+  @@index([motorista_id], map: "fk_motorista_onibus_motorista1_idx")
+  @@index([onibus_numero1], map: "fk_motorista_onibus_onibus2_idx")
+}
+
+ onibus {
+  numero   Int    @id @default(autoincrement())
+  placa    String @unique(map: "placa_UNIQUE") @db.Char(7)
+  linha_id Int
+
+  @@index([linha_id], map: "fk_onibus_linha1_idx")
+}
+
+ viagem {
+  id            Int      @id @default(autoincrement())
+  data          DateTime @db.DateTime(0)
+  linha_id      Int
+  motorista_id  Int
+  onibus_numero Int
+
+  @@index([linha_id], map: "fk_viagem_linha1_idx")
+  @@index([motorista_id], map: "fk_viagem_motorista1_idx")
+  @@index([onibus_numero], map: "fk_viagem_onibus1_idx")
+}
+
+ viagem_has_cliente {
+  id         Int      @id @default(autoincrement())
+  viagem_id  Int
+  cliente_id Int
+  tarifa     Decimal  @db.Decimal(10, 2)
+  data       DateTime @db.DateTime(0)
+
+  @@index([cliente_id], map: "fk_viagem_has_cliente_cliente1_idx")
+  @@index([viagem_id], map: "fk_viagem_has_cliente_viagem1_idx")
+}
+
+ admin {
+  id    Int    @id @default(autoincrement())
+  nome  String @db.VarChar(200)
+  email String @db.VarChar(200)
+  senha String @db.VarChar(45)
+  token String @db.VarChar(45)
+}
