@@ -39,7 +39,7 @@ router.get('/', async (req, res) => {
 /* GET api/linhas/3 => mostra apenas a linha de id 3 */
 router.get('/:id', async (req, res) => {
   try {
-    const id = req.params.id
+    const id = parseInt(req.params.id)
 
     const linha = await prisma.linha.findUnique({
       where: {
@@ -63,12 +63,15 @@ router.post('/cadastrar', async (req, res) => {
 
     const dados = req.body
 
+    console.log(dados)
+
     const linha = await prisma.linha.create({
       data: dados
     })
     res.status(200).json(linha)
 
   } catch (exception) {
+    console.log(exception)
     let error = exceptionHandler(exception)
     res.status(error.code).json({
       error: error.message
@@ -81,7 +84,7 @@ router.post('/cadastrar', async (req, res) => {
 router.put('/atualizar/:id', async (req, res) => {
   
   try {
-    const id = req.params.id
+    const id = parseInt(req.params.id)
     const dados = req.body
 
     const linha = await prisma.linha.update({
@@ -104,7 +107,7 @@ router.put('/atualizar/:id', async (req, res) => {
 /* delete api/linhas/deletar/6 => deleta a linha de id 6 */
 router.delete('/deletar/:id', async (req, res) => {
   try {
-    const id = req.params.id
+    const id = parseInt(req.params.id)
 
     const linha = await prisma.linha.delete({
       where: {

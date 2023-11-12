@@ -2,6 +2,7 @@ function storeFlashMessage(type, message) {
     const flashMessage = { type, message };
     localStorage.setItem('flashMessage', JSON.stringify(flashMessage));
 }
+
 function displayFlashMessage() {
     const flashMessage = JSON.parse(localStorage.getItem('flashMessage'));
     if (flashMessage) {
