@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", async (event) => {
           let nascimento = document.querySelector("#nascimento").value;
           nascimento = `${nascimento}T00:00:00Z`;
           // const senha = document.querySelector("#senha").value;
-          const numeroTel = document.querySelector("#numeroTel").value;
           const tipoCarteirinha = document.querySelector('#tipoCarteirinha').value;
 
           const data = { nomeCompleto, cpf, email, nascimento, numeroTel, tipoCarteirinha };
@@ -43,7 +42,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
             console.log(cliente)
             const response = await axios.patch(`http://localhost:5000/api/clientes/atualizar/${urlId}`, data);
           
-            console.log("foi ebaaaa")
+            console.log("foi")
     
             const id = response.data.id;    
             window.location.href = `http://localhost:3000/admin/vizualizar-cliente/${urlId}`;

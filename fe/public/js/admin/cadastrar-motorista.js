@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const email = document.querySelector("#email").value;
       const nascimento = document.querySelector("#nascimento").value;
       const senha = document.querySelector("#senha").value;
-      const numeroTel = document.querySelector("#numeroTel").value;
       //forma de guarda-los em um array
       const data = { nomeCompleto, CPF, email, nascimento, senha, numeroTel };
 
