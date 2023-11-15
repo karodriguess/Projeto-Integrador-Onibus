@@ -21,3 +21,13 @@ app.post('/upload', upload.single('foto'), (req, res) => {
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
 });
+
+
+                // Seleciona o elemento pelo ID
+                var apagar = document.getElementById('deletar');
+
+                // Adiciona um ouvinte de evento de clique ao elemento
+                apagar.onclick = function() {
+                    alert(`Você clicou no elemento!`);
+                };
+        
