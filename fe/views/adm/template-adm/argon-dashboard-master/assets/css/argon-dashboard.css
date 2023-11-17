@@ -1,9 +1,3 @@
-/*!
- * Bootstrap v5.2.0-beta1 (https://getbootstrap.com/)
- * Copyright 2011-2022 The Bootstrap Authors
- * Copyright 2011-2022 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
 :root {
   --bs-blue: #63B3ED;
   --bs-indigo: #596CFF;
@@ -2476,7 +2470,7 @@ progress {
   padding: 0.5rem 0.5rem;
   background-color: var(--bs-table-bg);
   border-bottom-width: 1px;
-  box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+ box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg); 
 }
 
 .table>tbody {
@@ -2892,7 +2886,7 @@ textarea.form-control-lg {
   background-size: 16px 12px;
   border: 1px solid #d2d6da;
   border-radius: 0.5rem;
-  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+   transition: box-shadow 0.15s ease, border-color 0.15s ease; 
   appearance: none;
 }
 

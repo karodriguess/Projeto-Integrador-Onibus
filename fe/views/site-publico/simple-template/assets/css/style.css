@@ -1,24 +1,3 @@
-/*-----------------------------------------------------------------------------------
-
-    Template Name: Simple
-    Author: UIdeck
-    Author URI: uideck.com
-    Version: 1.0
-
------------------------------------------------------------------------------------
-
-    CSS INDEX
-    ===================
-
-    01. Theme default CSS
-	02. Header
-    03. Hero
-	04. Footer
-
------------------------------------------------------------------------------------*/
-/*===========================
-    01.COMMON css 
-===========================*/
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
 html {
   scroll-behavior: smooth;
@@ -128,7 +107,6 @@ p {
   height: 100%;
 }
 
-/*===== All Button Style =====*/
 .main-btn {
   display: inline-block;
   font-weight: 500;
@@ -146,15 +124,14 @@ p {
   cursor: pointer;
   z-index: 5;
   transition: all 0.4s ease-out 0s;
-  background-color: #E84E4E;
+  background-color: #fa5716;
 }
 
 .main-btn:hover {
-  background-color: #ff6b6b;
+  background-color: #fc8524;
   color: #fff;
 }
 
-/*===== All Section Title Style =====*/
 .section_title .title {
   font-size: 40px;
   font-weight: 700;
@@ -340,18 +317,20 @@ p {
   width: 100%;
   z-index: 999;
   transition: all 0.3s ease-out 0s;
+  box-shadow: none;
 }
 
 .sticky {
   position: fixed;
   z-index: 99;
   background-color: #fff;
-  box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.05);
+  width: 100%;
   transition: all 0.3s ease-out 0s;
 }
 
 .sticky .navbar {
   padding: 15px 0;
+  box-shadow: none;
 }
 
 .navbar {
@@ -506,13 +485,13 @@ p {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .navbar-nav .nav-item a.active, .navbar-nav .nav-item a:hover {
-    color: #E84E4E;
+    color: #fa5716;
   }
 }
 
 @media (max-width: 767px) {
   .navbar-nav .nav-item a.active, .navbar-nav .nav-item a:hover {
-    color: #E84E4E;
+    color: #fa5716;
   }
 }
 
@@ -584,7 +563,7 @@ p {
 
 .navbar-nav .nav-item .sub-menu li a.active, .navbar-nav .nav-item .sub-menu li a:hover {
   padding-left: 25px;
-  color: #E84E4E;
+  color: #fa5716;
 }
 
 .navbar-nav .sub-nav-toggler {
@@ -640,11 +619,11 @@ p {
 }
 
 .sticky .navbar-nav .nav-item a::before {
-  background-color: #E84E4E;
+  background-color: #fa5716;
 }
 
 .sticky .navbar-nav .nav-item a.active, .sticky .navbar-nav .nav-item a:hover {
-  color: #E84E4E;
+  color:#fa5716;
 }
 
 /*===== hero =====*/
@@ -725,7 +704,7 @@ p {
 
 .hero_content .hero_title span {
   display: contents;
-  color: #E84E4E;
+  color: #fa5716;
 }
 
 .hero_content p {
@@ -750,7 +729,7 @@ p {
 .single_features i {
   font-size: 60px;
   line-height: 60px;
-  color: #E84E4E;
+  color: #fa5716;
   transition: all 0.3s ease-out 0s;
 }
 
@@ -762,7 +741,7 @@ p {
 }
 
 .single_features .features_title {
-  color: #E84E4E;
+  color: #fa5716;
   margin-top: 15px;
   font-size: 24px;
   font-weight: 600;
@@ -780,7 +759,7 @@ p {
 }
 
 .single_features:hover i {
-  color: #E84E4E;
+  color: #fa5716;
 }
 
 /*===========================
@@ -818,7 +797,7 @@ p {
 .about_image .image_content {
   width: 185px;
   height: 185px;
-  background-color: #E84E4E;
+  background-color: #fa5716;
   display: table;
   text-align: center;
   position: relative;
@@ -976,7 +955,7 @@ p {
 
 .single_portfolio .portfolio_content .meta li a:hover {
   background-color: #fff;
-  color: #E84E4E;
+  color: #fa5716;
 }
 
 .single_portfolio .portfolio_content .meta li:first-child {
@@ -1055,7 +1034,7 @@ p {
 }
 
 .single_pricing .price {
-  color: #E84E4E;
+  color: #fa5716;
   font-size: 44px;
   margin-top: 25px;
   font-weight: 700;
@@ -1079,7 +1058,7 @@ p {
   line-height: 43px;
   text-align: center;
   padding: 0 25px;
-  color: #E84E4E;
+  color: #fa5716;
   transition: all 0.3s ease-out 0s;
   margin-top: 30px;
 }
@@ -1089,7 +1068,7 @@ p {
 }
 
 .single_pricing.active {
-  background-color: #E84E4E;
+  background-color: #fa5716;
 }
 
 .single_pricing.active .pricing_title {
@@ -1138,7 +1117,7 @@ p {
 }
 
 .single_team .team_content .team_name a:hover {
-  color: #E84E4E;
+  color: #fa5716;
 }
 
 .single_team .team_content p {
@@ -1163,7 +1142,7 @@ p {
 }
 
 .single_team .team_content .social li a:hover {
-  color: #E84E4E;
+  color: #fa5716;
 }
 
 /*===========================
@@ -1210,7 +1189,7 @@ p {
 }
 
 .testimonial_active_wrapper .tns-nav button.tns-nav-active {
-  background-color: #E84E4E;
+  background-color: #fa5716;
 }
 
 .single_testimonial img {
@@ -1266,7 +1245,7 @@ p {
 }
 
 .single_blog .blog_content .blog_title a:hover {
-  color: #E84E4E;
+  color: #fa5716;
 }
 
 .single_blog .blog_content p {
@@ -1282,7 +1261,7 @@ p {
 }
 
 .single_blog .blog_content .more:hover {
-  color: #E84E4E;
+  color: #fa5716;
 }
 
 .single_blog.blog_2 .blog_content {
@@ -1376,7 +1355,7 @@ p.form-message.success.form-message.error, p.form-message.error.form-message.err
     11.FOOTER css 
 ===========================*/
 .footer_area {
-  background-color: #E84E4E;
+  background-color: #fa5716;
   padding-top: 15px;
   padding-bottom: 30px;
 }
@@ -1451,7 +1430,7 @@ p.form-message.success.form-message.error, p.form-message.error.form-message.err
   height: 40px;
   line-height: 40px;
   border-radius: 5px;
-  background-color: #E84E4E;
+  background-color: #fa5716;
   text-align: center;
   z-index: 99;
   transition: all 0.3s ease-out 0s;
@@ -1461,5 +1440,57 @@ p.form-message.success.form-message.error, p.form-message.error.form-message.err
 
 .back-to-top:hover {
   color: #fff;
-  background-color: #E84E4E;
+  background-color: #fa5716;
 }
+
+
+button {
+  --color: #fa5716;
+  font-family: inherit;
+  display: inline-block;
+  width: 8em;
+  height: 2.6em;
+  line-height: 2.5em;
+  margin: 20px;
+  position: relative;
+  overflow: hidden;
+   border: 1px solid var(--color); 
+  transition: color .5s;
+  z-index: 1;
+  font-size: 17px;
+  border-radius: 12px;
+  font-weight: 500;
+  color: var(--color);
+  color: #fa5716;
+  font-weight: 700;
+ }
+ 
+ button:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--color);
+  height: 150px;
+  width: 200px;
+  border-radius: 50%;
+ }
+ 
+ button:hover {
+  color: #fff;
+ }
+ 
+ button:before {
+  top: 100%;
+  left: 100%;
+  transition: all .7s;
+ }
+ 
+ button:hover:before {
+  top: -30px;
+  left: -30px;
+ }
+ 
+ button:active:before {
+  background: #3a0ca3;
+  transition: background 0s;
+ }
