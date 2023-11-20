@@ -14,8 +14,28 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
-
+ section{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+section:nth-of-type(1){
+  background-image: url(./../images/catraca.jpg);
+  background-attachment: fixed;
+} 
+::-webkit-scrollbar{
+  width: 15px;
+}
+::-webkit-scrollbar-thumb{
+  background:#fa5716;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track{
+  background: rgb(245, 244, 244);
+}
 img {
   max-width: 100%;
 }
@@ -154,7 +174,6 @@ p {
   color: #fff;
 }
 
-/*===== All Preloader Style =====*/
 .preloader {
   /* Body Overlay */
   position: fixed;
@@ -163,7 +182,6 @@ p {
   display: table;
   height: 100%;
   width: 100%;
-  /* Change Background Color */
   background: #fff;
   z-index: 99999;
 }
@@ -247,7 +265,7 @@ p {
   animation: ytp-right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
 }
 
-/* Preloader Animations */
+/*  Animations */
 
 @keyframes ytp-spinner-linspin {
   to {
@@ -306,9 +324,6 @@ p {
   }
 }
 
-/*===========================
-     02.HEADER css 
-===========================*/
 /*===== NAVBAR =====*/
 .header_navbar {
   position: absolute;
@@ -346,6 +361,7 @@ p {
 
 .navbar-brand img {
   width: 150px;
+  visibility: hidden;
 }
 
 @media (max-width: 767px) {
@@ -1713,14 +1729,14 @@ button {
   box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
   padding: 0 2em;
   border-radius: 0.3em;
-  color: orange;
+  color: #fa5716;
   height: 2.6em;
   text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
   transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
 
 button:hover {
-  box-shadow: 0px 0.1em 0.2em orange;
+  box-shadow: 0px 0.1em 0.2em #fa5716;
   transform: translateY(-0.1em);
 }
 
@@ -1728,3 +1744,4 @@ button:active {
   box-shadow: inset 0px 0.1em 0.6em #3c4fe0;
   transform: translateY(0em);
 }
+
