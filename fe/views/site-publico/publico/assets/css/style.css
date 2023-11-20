@@ -1691,7 +1691,7 @@ th {
 
 #btn:hover {
  transform: translateY(-5px);
- box-shadow: 0 10px 14px #fa5716;
+ box-shadow: 0 6px 9px #fa5716;
 }
 
 #btn:active {
@@ -1726,7 +1726,7 @@ button {
   cursor: pointer;
   will-change: box-shadow,transform;
   background:white;
-  box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+  box-shadow: 0px 0.01em 0.01em rgba(88, 86, 94, 0.4), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
   padding: 0 2em;
   border-radius: 0.3em;
   color: #fa5716;
@@ -1745,3 +1745,20 @@ button:active {
   transform: translateY(0em);
 }
 
+.loader {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #69ffa8;
+  animation: 1.5s pulse infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #69ffa8;
+  }
+
+  100% {
+    box-shadow: 0 0 0 14px #69ffa800;
+  }
+}
