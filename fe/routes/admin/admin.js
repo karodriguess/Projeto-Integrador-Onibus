@@ -45,6 +45,20 @@ router.get("/deletar-cliente/:id", function (req, res, next) {
   res.render("admin/deletar_cliente");
 });
 
+// http://localhost:3000/admin/vizualizar-linha/:id
+router.get("/vizualizar-linha/:id", function (req, res, next) {
+  res.render("admin/vizualizar_linha");
+});
+
+// http://localhost:3000/admin/deletar-linha/:id
+router.get("/deletar-linha/:id", function (req, res, next) {
+  res.render("admin/deletar_linha");
+});
+
+// http://localhost:3000/admin/editar-linha/:id
+router.get("/editar-linha/:id", function (req, res, next) {
+  res.render("admin/editar_linha");
+});
 
 
 module.exports = router;

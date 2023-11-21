@@ -96,6 +96,41 @@ router.post('/cadastrar', async (req, res) => {
   
 });
 
+// POST /api/clientes/login
+router.post('/login', async(req, res) => {
+  try {
+    const dados = req.body;
+    if (!'senha' in dados || !'email' in dados) {
+      return res.status(401).json({
+        error: "Usuário e senha são obrigatórios"
+      });
+    }
+    const cliente = await prisma.cliente.findUniqueOrThrow({
+      where: {
+        cpf: dados.cpf
+      }
+    });
+    const passwordCheck = await bcrypt.compare(
+      dados.senha, cliente.senha
+    );
+    if (!passwordCheck) {
+      return res.status(401).json({
+        error: "Usuário e/ou senha incorreto(s)"
+      });
+    }
+    delete cliente.password;
+    const jwt = generateAccessToken(cliente);
+    cliente.accessToken = jwt;
+    res.json(cliente);
+  }
+  catch (exception) {
+    let error = exceptionHandler(exception);
+    return res.status(error.code).json({
+      error: error.message
+    })
+  }
+});
+
 /* PUT api/clientes/atualizar/5 => atualiza TODOS OS DADOS do cliente de id 5 */
 router.patch('/atualizar/:id', async (req, res) => {
   

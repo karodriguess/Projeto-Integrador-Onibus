@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
       document.querySelector("#email").value = cliente.email;
       document.querySelector("#nascimento").value = cliente.nascimento.split("T")[0];
     //   document.querySelector("#senha").value = cliente.senha;
-  
+      document.querySelector("#numeroTel").value = cliente.numeroTel;
       document.querySelector("#tipoCarteirinha").value = cliente.tipoCarteirinha;
     } catch (error) {
       triggerFlashMessage("danger", error.message);

@@ -9,12 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
     //coleta dos dados do form
     if (form.checkValidity()) {
       const nomeCompleto = document.querySelector("#nomeCompleto").value;
-      const CPF = document.querySelector("#CPF").value;
+      const cpf = document.querySelector("#cpf").value;
       const email = document.querySelector("#email").value;
-      const nascimento = document.querySelector("#nascimento").value;
-      const senha = document.querySelector("#senha").value;
+      let nascimento = document.querySelector("#nascimento").value;
+      nascimento = `${nascimento}T00:00:00Z`;
+      const numeroTel = document.querySelector("#numeroTel").value;
       //forma de guarda-los em um array
-      const data = { nomeCompleto, CPF, email, nascimento, senha, numeroTel };
+      const data = { nomeCompleto, cpf, email, nascimento, numeroTel };
 
       try {
         const response = await axios.post("http://localhost:5000/api/motoristas/cadastrar", data);

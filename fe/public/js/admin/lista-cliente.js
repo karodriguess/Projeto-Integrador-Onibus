@@ -45,3 +45,7 @@ $(document).ready(function() {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", async (event) => {
+  displayFlashMessage()
+});
