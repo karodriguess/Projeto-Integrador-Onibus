@@ -344,7 +344,7 @@ p {
 }
 
 .sticky .navbar {
-  padding: 15px 0;
+  padding:  0;
   box-shadow: none;
 }
 
@@ -357,11 +357,6 @@ p {
 
 .navbar-brand {
   padding: 0;
-}
-
-.navbar-brand img {
-  width: 150px;
-  visibility: hidden;
 }
 
 @media (max-width: 767px) {
@@ -1299,6 +1294,21 @@ p {
   }
 }
 
+@media only screen and (min-width: 1080px) and (max-width: 1980px){
+  #cartao-master{
+    width: 620px;
+    height: 220px;
+  }
+}
+
+@media only screen and (min-width: 720px) and (max-width: 1280px){
+#cartao-master{
+  width: 400px;
+}
+}
+
+
+
 .single_blog.blog_2 .blog_content .blog_title a {
   font-size: 20px;
 }
@@ -1762,3 +1772,58 @@ button:active {
     box-shadow: 0 0 0 14px #69ffa800;
   }
 }
+
+.form {
+  background-color: white;
+  padding: 3.125em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup {
+  color: rgb(77, 75, 75);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: block;
+  font-weight: bold;
+  font-size: x-large;
+  margin-bottom: 0.5em;
+}
+
+.form--input {
+  width: 100%;
+  margin-bottom: 1.25em;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 0.8em;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+}
+
+.form--input:focus {
+  border: 1px solid #639;
+  outline: none;
+}
+
+.form--marketing {
+  display: flex;
+  margin-bottom: 1.25em;
+  align-items: center;
+}
+
+.form--marketing > input {
+  margin-right: 0.625em;
+}
+
+.form--marketing > label {
+  color: grey;
+}
+
+.checkbox, input[type="checkbox"] {
+  accent-color: #639;
+}
+
+ 

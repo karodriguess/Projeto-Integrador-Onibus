@@ -21761,6 +21761,7 @@ label,
   height: 48px;
   background-position: center;
   border-radius: 0.75rem;
+  background: #f3410f;
 }
 
 .icon-shape i {
@@ -22499,6 +22500,7 @@ hr.horizontal.gray-light {
 
 .navbar-vertical .navbar-nav .nav-link .icon {
   padding: 10px;
+  background: white;
 }
 
 .navbar-vertical .navbar-nav .nav-sm .nav-link {
