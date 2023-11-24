@@ -81,7 +81,7 @@ router.post('/cadastrar', async (req, res) => {
 });
 
 /* PUT api/linhas/atualizar/5 => atualiza TODOS OS DADOS da linha de id 5 */
-router.put('/atualizar/:id', async (req, res) => {
+router.patch('/atualizar/:id', async (req, res) => {
   
   try {
     const id = parseInt(req.params.id)

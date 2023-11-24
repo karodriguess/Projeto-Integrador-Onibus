@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", async (event) => {
-    displayFlashMessage();
       
     const url = window.location.href;
     const urlId = url.split("/").pop();
@@ -34,18 +33,21 @@ document.addEventListener("DOMContentLoaded", async (event) => {
           let nascimento = document.querySelector("#nascimento").value;
           nascimento = `${nascimento}T00:00:00Z`;
           // const senha = document.querySelector("#senha").value;
+          const numeroTel = document.querySelector("#numeroTel").value;
           const tipoCarteirinha = document.querySelector('#tipoCarteirinha').value;
 
           const data = { nomeCompleto, cpf, email, nascimento, numeroTel, tipoCarteirinha };
 
           try {
-            console.log(cliente)
+            
             const response = await axios.patch(`http://localhost:5000/api/clientes/atualizar/${urlId}`, data);
-          
-            console.log("foi")
+            const cliente = response.data
+            console.log(cliente)
+            console.log("foi ebaaaa")
     
-            const id = response.data.id;    
-            window.location.href = `http://localhost:3000/admin/vizualizar-cliente/${urlId}`;
+            // const id = response.data.id;    
+            storeFlashMessage("success", "Edição realizada sucesso");
+            window.location.href = `http://localhost:3000/admin/lista-cliente`;
           } catch (error) {
             console.log(error)
             storeFlashMessage("danger", error.message);

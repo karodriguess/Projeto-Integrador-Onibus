@@ -3,6 +3,7 @@ var router = express.Router();
 
 const { PrismaClient, Prisma } = require('@prisma/client');
 const prisma = new PrismaClient({errorFormat: 'minimal'});
+const uploadSingle = require('../middleware/uploadSingle')
 
 function exceptionHandler(e) {
   let error = {
@@ -64,18 +65,28 @@ router.get('/:id', async (req, res) => {
 });
 
 /* POST api/motoristas/cadastrar => cadastra um motorista */
-router.post('/cadastrar', async (req, res) => {
+router.post('/cadastrar', uploadSingle, async (req, res) => {
 
   try {
 
     const dados = req.body
+    console.log(dados)
+    const upload = req.upload || null;
+    if (upload) {
+      console.log(upload); // Exibe o objeto upload no terminal.
+      dados.fotoInput = upload.customPath; // Acrescenta o caminho para salvar no banco de dados.
+    }
 
     const motorista = await prisma.motorista.create({
       data: dados
     })
-    res.status(200).json(motorista)
+
+    const baseUrl = `${req.protocol}://${req.headers.host}`; // Obtém o base URL do servidor.
+    motorista.fotoInput = `${baseUrl}/${motorista.fotoInput}`;
+    res.status(201).json(motorista)
 
   } catch (exception) {
+    console.log(exception)
     let error = exceptionHandler(exception)
     res.status(error.code).json({
       error: error.message
@@ -85,7 +96,7 @@ router.post('/cadastrar', async (req, res) => {
 });
 
 /* PUT api/motoristas/atualizar/5 => atualiza TODOS OS DADOS do motorista de id 5 */
-router.put('/atualizar/:id', async (req, res) => {
+router.patch('/atualizar/:id', async (req, res) => {
   
   try {
     const id = parseInt(req.params.id)
