@@ -8,56 +8,57 @@ router.get('/', function(req, res, next) {
 });
 // http://localhost:3000/admin/cadastrar-cliente
 router.get("/cadastrar-cliente", function (req, res, next) {
-  res.render("admin/form_validation"); 
+  res.render("adm/template-adm/argon-dashboard-master/pages/cliente.html"); 
 });
 // http://localhost:3000/admin/cadastrar-motorista
 router.get("/cadastrar-motorista", function (req, res, next) {
-  res.render("admin/form_funcionario");
+  res.render("adm/template-adm/argon-dashboard-master/pages/motorista.html");
 });
 // http://localhost:3000/admin/cadastrar-linha
 router.get("/cadastrar-linha", function (req, res, next) {
-  res.render("admin/form_linhas");
+  res.render("adm/template-adm/argon-dashboard-master/pages/linhas.html");
 });
 // http://localhost:3000/admin/lista-cliente
 router.get("/lista-cliente", function (req, res, next) {
-  res.render("admin/tables");
+  res.sendFile("adm/template-adm/argon-dashboard-master/pages/tbl-cliente.html", {root: "views" });
 });
 // http://localhost:3000/admin/lista-motorista
 router.get("/lista-motorista", function (req, res, next) {
-  res.render("admin/tables_dynamic");
+  // res.render("adm/template-adm/argon-dashboard-master/pages/tbl-motorista.html");
+  res.sendFile('adm/template-adm/argon-dashboard-master/pages/tbl-motorista.html', {root: "views" })
 });
 // http://localhost:3000/admin/lista-linha
 router.get("/lista-linha", function (req, res, next) {
-  res.render("admin/tables_linhas");
+  res.render("adm/template-adm/argon-dashboard-master/pages/tbl-linhas.html");
 });
 // http://localhost:3000/admin/vizualizar-cliente/:id
 router.get("/vizualizar-cliente/:id", function (req, res, next) {
-  res.render("admin/vizualizar_cliente");
+  res.render("adm/template-adm/argon-dashboard-master/pages/tbl-cliente.html");
 });
 
 // http://localhost:3000/admin/editar-cliente/:id
 router.get("/editar-cliente/:id", function (req, res, next) {
-  res.render("admin/editar_cliente");
+  res.render("adm/template-adm/argon-dashboard-master/pages/editar-cliente.html");
 });
 
 // http://localhost:3000/admin/deletar-cliente/:id
 router.get("/deletar-cliente/:id", function (req, res, next) {
-  res.render("admin/deletar_cliente");
+  res.render("adm/template-adm/argon-dashboard-master/pages/deletar-cliente.html");
 });
 
 // http://localhost:3000/admin/vizualizar-linha/:id
 router.get("/vizualizar-linha/:id", function (req, res, next) {
-  res.render("admin/vizualizar_linha");
+  res.render("adm/template-adm/argon-dashboard-master/pages/tbl-linhas.html");
 });
 
 // http://localhost:3000/admin/deletar-linha/:id
 router.get("/deletar-linha/:id", function (req, res, next) {
-  res.render("admin/deletar_linha");
+  res.render("adm/template-adm/argon-dashboard-master/pages/deletar-linha.html");
 });
 
 // http://localhost:3000/admin/editar-linha/:id
 router.get("/editar-linha/:id", function (req, res, next) {
-  res.render("admin/editar_linha");
+  res.render("adm/template-adm/argon-dashboard-master/pages/editar-linha.html");
 });
 
 

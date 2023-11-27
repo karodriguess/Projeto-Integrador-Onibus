@@ -1296,7 +1296,7 @@ p {
 
 @media only screen and (min-width: 1080px) and (max-width: 1980px){
   #cartao-master{
-    width: 620px;
+    width: 700px;
     height: 220px;
   }
 }
@@ -1527,6 +1527,13 @@ button {
   height: 200px;
   perspective: 1000px;
   color: white;
+}
+
+@media only screen and (min-width: 1080px) and (max-width: 1920px){
+  .flip-card{
+    width: 400px;
+  }
+
 }
 
 .heading_8264 {
