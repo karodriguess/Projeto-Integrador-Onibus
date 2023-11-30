@@ -25,6 +25,7 @@ function exceptionHandler(e) {
 
 /* GET api/clientes => lista todos os clientes */
 router.get('/', async (req, res) => {
+  
   try {
     
     const clientes = await prisma.cliente.findMany();

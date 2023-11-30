@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 // http://localhost:3000/admin/cadastrar-cliente
 router.get("/cadastrar-cliente", function (req, res, next) {
-  res.render("adm/template-adm/argon-dashboard-master/pages/cliente.html"); 
+  res.sendFile('adm/template-adm/argon-dashboard-master/pages/cliente.html', {root: "views" })
 });
 // http://localhost:3000/admin/cadastrar-motorista
 router.get("/cadastrar-motorista", function (req, res, next) {
