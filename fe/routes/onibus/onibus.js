@@ -13,15 +13,15 @@ router.get('/aprovado', function(req, res, next) {
     res.render('onibus/approved');
 });
 
-// http://localhost:3000/onibus/aprovado/deficiente
-router.get('/aprovado/deficiente', function(req, res, next) {
-    res.render('onibus/approved2');
-});
+// // http://localhost:3000/onibus/aprovado/deficiente
+// router.get('/aprovado/deficiente', function(req, res, next) {
+//     res.render('onibus/approved2');
+// });
 
-// http://localhost:3000/onibus/aprovado/estudante
-router.get('/aprovado/estudante', function(req, res, next) {
-    res.render('onibus/approved3');
-});
+// // http://localhost:3000/onibus/aprovado/estudante
+// router.get('/aprovado/estudante', function(req, res, next) {
+//     res.render('onibus/approved3');
+// });
 
 // http://localhost:3000/onibus/recusado
 router.get('/recusado', function(req, res, next) {

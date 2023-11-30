@@ -8,19 +8,21 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema pi2db
+-- Schema smartpass
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema pi2db
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `pi2db` DEFAULT CHARACTER SET utf8 ;
-USE `pi2db` ;
+-- Schema smartpass
 
 -- -----------------------------------------------------
--- Table `pi2db`.`usuario`
+drop database if EXISTS smartpass;
+CREATE SCHEMA IF NOT EXISTS `smartpass` DEFAULT CHARACTER SET utf8 ;
+USE `smartpass` ;
+
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pi2db`.`usuario` (
+-- Table `smartpass`.`usuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `smartpass`.`usuario` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(100) NULL,
   `email` VARCHAR(250) NULL,
@@ -31,9 +33,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `pi2db`.`cliente`
+-- Table `smartpass`.`cliente`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pi2db`.`cliente` (
+CREATE TABLE IF NOT EXISTS `smartpass`.`cliente` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `usuario_id` INT UNSIGNED NULL,
   `nome` VARCHAR(100) NULL,
@@ -43,16 +45,16 @@ CREATE TABLE IF NOT EXISTS `pi2db`.`cliente` (
   INDEX `fk_cliente_usuario1_idx` (`usuario_id` ASC),
   CONSTRAINT `fk_cliente_usuario1`
     FOREIGN KEY (`usuario_id`)
-    REFERENCES `pi2db`.`usuario` (`id`)
+    REFERENCES `smartpass`.`usuario` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `pi2db`.`linha`
+-- Table `smartpass`.`linha`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pi2db`.`linha` (
+CREATE TABLE IF NOT EXISTS `smartpass`.`linha` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(100) NULL,
   `origem` VARCHAR(100) NULL,
@@ -64,9 +66,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `pi2db`.`motorista`
+-- Table `smartpass`.`motorista`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pi2db`.`motorista` (
+CREATE TABLE IF NOT EXISTS `smartpass`.`motorista` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(100) NULL,
   `foto` VARCHAR(250) NULL,
@@ -75,9 +77,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `pi2db`.`onibus`
+-- Table `smartpass`.`onibus`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pi2db`.`onibus` (
+CREATE TABLE IF NOT EXISTS `smartpass`.`onibus` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `placa` CHAR(7) NULL,
   PRIMARY KEY (`id`))
@@ -85,9 +87,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `pi2db`.`viagem`
+-- Table `smartpass`.`viagem`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pi2db`.`viagem` (
+CREATE TABLE IF NOT EXISTS `smartpass`.`viagem` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `linha_id` INT UNSIGNED NULL,
   `motorista_id` INT UNSIGNED NULL,
@@ -100,26 +102,26 @@ CREATE TABLE IF NOT EXISTS `pi2db`.`viagem` (
   INDEX `fk_viagem_onibus1_idx` (`onibus_id` ASC),
   CONSTRAINT `fk_viagem_linha1`
     FOREIGN KEY (`linha_id`)
-    REFERENCES `pi2db`.`linha` (`id`)
+    REFERENCES `smartpass`.`linha` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_viagem_motorista1`
     FOREIGN KEY (`motorista_id`)
-    REFERENCES `pi2db`.`motorista` (`id`)
+    REFERENCES `smartpass`.`motorista` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_viagem_onibus1`
     FOREIGN KEY (`onibus_id`)
-    REFERENCES `pi2db`.`onibus` (`id`)
+    REFERENCES `smartpass`.`onibus` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `pi2db`.`embarque`
+-- Table `smartpass`.`embarque`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pi2db`.`embarque` (
+CREATE TABLE IF NOT EXISTS `smartpass`.`embarque` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `cliente_id` INT UNSIGNED NULL,
   `viagem_id` INT UNSIGNED NULL,
@@ -130,12 +132,12 @@ CREATE TABLE IF NOT EXISTS `pi2db`.`embarque` (
   INDEX `fk_cliente_has_viagem_cliente1_idx` (`cliente_id` ASC),
   CONSTRAINT `fk_cliente_has_viagem_cliente1`
     FOREIGN KEY (`cliente_id`)
-    REFERENCES `pi2db`.`cliente` (`id`)
+    REFERENCES `smartpass`.`cliente` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_cliente_has_viagem_viagem1`
     FOREIGN KEY (`viagem_id`)
-    REFERENCES `pi2db`.`viagem` (`id`)
+    REFERENCES `smartpass`.`viagem` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

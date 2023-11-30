@@ -238,13 +238,13 @@
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table align-items-center mb-0 " id="tabela-clientes">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">lista</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Cartão</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nome</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"></th>
                      
-                      <th  class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Data</th>
+                      <th  class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">CPF</th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
@@ -262,7 +262,6 @@
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0">Normal</p>
                         <p class="text-xs text-secondary mb-0"></p>
                       </td>
                      
@@ -331,7 +330,8 @@
                       </td>
                         
                       </td>
-                    </tr>
+                    </tr
+                    >
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
@@ -344,6 +344,7 @@
                           </div>
                         </div>
                       </td>
+
                       <td>
                         <p class="text-xs font-weight-bold mb-0">Normal</p>
                         <p class="text-xs text-secondary mb-0"></p>
@@ -705,6 +706,118 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+
+  <!-- <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+  const tabelaClientes = document.getElementById('tabela-clientes');
+
+  try {
+    const response = await axios.get('http://localhost:5000/api/clientes');
+    const clientes = response.data;
+
+    clientes.forEach((cliente) => {
+      const tr = document.createElement('tr');
+
+      // Criar a célula para o nome do cliente
+      const tdNome = document.createElement('td');
+      tdNome.textContent = cliente.nome;
+      tr.appendChild(tdNome);
+
+      // Criar as células e preencher com os dados do cliente
+      const tdAcoes = document.createElement('td');
+
+      // Adicionando os botões de ação
+      const divAcoes = document.createElement('div');
+      divAcoes.classList.add('ms-auto', 'text-end');
+
+      // Botão Delete
+      const deleteButton = document.createElement('a');
+      deleteButton.id = 'delete';
+      deleteButton.classList.add('btn', 'btn-link', 'text-danger', 'text-gradient', 'px-3', 'mb-0');
+      deleteButton.href = 'javascript:;';
+      deleteButton.innerHTML = '<i class="far fa-trash-alt me-2"></i>Delete';
+      divAcoes.appendChild(deleteButton);
+
+      // Botão Edit
+      const editButton = document.createElement('a');
+      editButton.id = 'edit';
+      editButton.classList.add('btn', 'btn-link', 'text-dark', 'px-3', 'mb-0');
+      editButton.href = 'javascript:;';
+      editButton.innerHTML = '<i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit';
+      divAcoes.appendChild(editButton);
+
+      // Adicionando divAcoes à tdAcoes
+      tdAcoes.appendChild(divAcoes);
+
+      // Adicionando tdAcoes à linha (tr)
+      tr.appendChild(tdAcoes);
+
+      // Adicionando a linha à tabela
+      tabelaClientes.querySelector('tbody').appendChild(tr);
+    });
+  } catch (error) {
+    console.error('Erro ao obter clientes:', error);
+  }
+});
+
+  </script> -->
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const tabelaCliente = document.getElementById('tabela-clientes');
+      tabelaCliente.querySelector('tbody').innerHTML=''
+      try {
+        const response = await axios.get('http://localhost:5000/api/clientes');
+        const motoristas = response.data;
+
+        motoristas.forEach((motorista) => {
+          const tr = document.createElement('tr');
+
+          // Criar as células e preencher com os dados do motorista
+          const tdId = document.createElement('td');
+          tdId.textContent = motorista.id;
+          tr.appendChild(tdId);
+
+          const tdNome = document.createElement('td');
+          tdNome.textContent = motorista.nome;
+          tr.appendChild(tdNome);
+
+          const tdAcoes = document.createElement('td');
+
+          // Adicionando os botões de ação
+          const divAcoes = document.createElement('div');
+          divAcoes.classList.add('ms-auto', 'text-end');
+
+          // Botão Delete
+          const deleteButton = document.createElement('a');
+          deleteButton.id = 'delete';
+          deleteButton.classList.add('btn', 'btn-link', 'text-danger', 'text-gradient', 'px-3', 'mb-0');
+          deleteButton.href = 'javascript:;';
+          deleteButton.innerHTML = '<i class="far fa-trash-alt me-2"></i>Delete';
+          divAcoes.appendChild(deleteButton);
+
+          // Botão Edit
+          const editButton = document.createElement('a');
+          editButton.id = 'edit';
+          editButton.classList.add('btn', 'btn-link', 'text-dark', 'px-3', 'mb-0');
+          editButton.href = 'javascript:;';
+          editButton.innerHTML = '<i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit';
+          divAcoes.appendChild(editButton);
+
+          // Adicionando divAcoes à tdAcoes
+          tdAcoes.appendChild(divAcoes);
+
+          // Adicionando tdAcoes à linha (tr)
+          tr.appendChild(tdAcoes);
+
+          // Adicione a linha à tabela
+          tabelaMotoristas.querySelector('tbody').appendChild(tr);
+        });
+      } catch (error) {
+        alert('Erro ao obter motoristas:', error);
+      }
+    });
+  </script>
 </body>
 
 </html>
