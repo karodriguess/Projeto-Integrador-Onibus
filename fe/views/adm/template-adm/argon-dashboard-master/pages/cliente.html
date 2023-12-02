@@ -1,17 +1,3 @@
-<!--
-=========================================================
-* Argon Dashboard 2 - v2.0.4
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -340,15 +326,15 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Nome Completo</label>
-                    <input class="form-control" type="text" value="" id="nome">
+                    <input class="form-control" type="text" value="" id="nome" id="edit-nome">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">CPF</label>
-                    <input class="form-control" type="text" value="" id="cpf">
+                    <input class="form-control" type="text" value="" id="cpf" id="edit-cpf">
                   </div>
-                </div>            
+                </div>                      
               </div>
 
               <hr class="horizontal dark">
@@ -368,15 +354,13 @@
                         </path>
                       </svg></div>
 
-                    <div class="text" >Enviar</div>
+                    <div class="text">Enviar</div>
                   </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-
         <!--             
               lateral do cadastro -->
         <footer class="footer pt-3  ">
@@ -513,6 +497,7 @@
         const btnCadastrarCliente = document.querySelector('#btn-cadastrar-cliente');
         const nomeInput = document.querySelector('#nome');
         const cpfInput = document.querySelector('#cpf');
+        const saldoInput = document.querySelector('#saldo');
   
         btnCadastrarCliente.addEventListener('click', async () => {
           const nome = nomeInput.value.trim(); 
@@ -525,6 +510,7 @@
             alert('Cliente cadastrado com sucesso!');
             // Limpar os campos após o cadastro, se necessário
             nomeInput.value = '';
+            cpfInput.value = '';
             cpfInput.value = '';
           } catch (error) {
             alert('Erro ao cadastrar cliente:', error);
