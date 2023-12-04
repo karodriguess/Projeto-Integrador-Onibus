@@ -25,7 +25,7 @@ router.get("/lista-cliente", function (req, res, next) {
 // http://localhost:3000/admin/lista-motorista
 router.get("/lista-motorista", function (req, res, next) {
   // res.sendFile("adm/template-adm/argon-dashboard-master/pages/tbl-motorista.html");
-  res.sendFile('adm/template-adm/argon-dashboard-master/pages/tbl-motorista.html', {root: "views" })
+  res.sendFile("adm/template-adm/argon-dashboard-master/pages/tbl-motorista.html", {root: "views" })
 });
 // http://localhost:3000/admin/lista-linha
 router.get("/lista-linha", function (req, res, next) {

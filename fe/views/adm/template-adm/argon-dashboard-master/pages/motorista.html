@@ -323,97 +323,72 @@
             </div>
             <div class="card-body">
               <p class="text-uppercase text-sm">Informação do usuário</p>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Nome Completo</label>
-                    <input class="form-control" type="text" value="" id="nome">
+              <form id="form-motorista" enctype="multipart/form-data">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="nome" class="form-control-label">Nome Completo</label>
+                      <input class="form-control" type="text" id="nome" name="nome">
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Endereço de Email </label>
-                    <input class="form-control" type="email" value="maria@example.com">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">CPF</label>
-                    <input class="form-control" type="text" value="" id="cpf">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Nascimento</label>
-                    <input class="form-control" type="date" value="">
-                  </div>
-                </div>
-              </div>
-              <hr class="horizontal dark">
-              <p class="text-uppercase text-sm">Informações de Contato</p>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Endereço</label>
-                    <input class="form-control" type="text" value="">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Cidade</label>
-                    <input class="form-control" type="text" value="Caraguatatuba">
-                  </div>
-                </div>
-                <!-- <div class="col-md-4">
-                  <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Country</label>
-                    <input class="form-control" type="text" value="">
-                  </div>
-                </div> -->
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Telefone</label>
-                    <input class="form-control" type="text" value="(**)*****-****">
-                  </div>
-                </div>
-              </div>
-              <hr class="horizontal dark">
-              <p class="text-uppercase text-sm" id="id">Id</p>
-              <input class="form-control" type="text" value="">
-              <br>
-              <!-- upload -->
-              <p class="text-uppercase text-sm" id="id">Adicione foto do motorista:</p>
-              <label class="custum-file-upload" for="file">
-                <div class="icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24">
-                    <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
-                    <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g>
-                    <g id="SVGRepo_iconCarrier">
-                      <path fill=""
-                        d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H7C7.55228 23 8 22.5523 8 22C8 21.4477 7.55228 21 7 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V9C19 9.55228 19.4477 10 20 10C20.5523 10 21 9.55228 21 9V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM14 15.5C14 14.1193 15.1193 13 16.5 13C17.8807 13 19 14.1193 19 15.5V16V17H20C21.1046 17 22 17.8954 22 19C22 20.1046 21.1046 21 20 21H13C11.8954 21 11 20.1046 11 19C11 17.8954 11.8954 17 13 17H14V16V15.5ZM16.5 11C14.142 11 12.2076 12.8136 12.0156 15.122C10.2825 15.5606 9 17.1305 9 19C9 21.2091 10.7909 23 13 23H20C22.2091 23 24 21.2091 24 19C24 17.1305 22.7175 15.5606 20.9844 15.122C20.7924 12.8136 18.858 11 16.5 11Z"
-                        clip-rule="evenodd" fill-rule="evenodd"></path>
-                    </g>
-                  </svg>
-                </div>
-                <div class="text">
-                  <span>upload foto</span>
-                </div>
-                <input type="file" id="foto">
-              </label>
-              <br><br>
 
-              <button class="Btn" id="btn-cadastrar-motorista">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="cpf" class="form-control-label">CPF</label>
+                      <input class="form-control" type="text" id="cpf" name="cpf">
+                    </div>
+                  </div>
 
-                <div class="sign"><svg viewBox="0 0 512 512">
-                    <path
-                      d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
-                    </path>
-                  </svg></div>
+                </div>
+                <hr class="horizontal dark">
 
-                <div class="text">Enviar</div>
-              </button>
+
+                <br>
+                <!-- upload -->
+
+                <p class="text-uppercase text-sm" id="id">Adicione foto do motorista:</p>
+                <!-- <label class="custum-file-upload" for="file">
+                  <input type="file" id="foto" name="foto">
+                  <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24">
+                      <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                      <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path fill=""
+                          d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H7C7.55228 23 8 22.5523 8 22C8 21.4477 7.55228 21 7 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V9C19 9.55228 19.4477 10 20 10C20.5523 10 21 9.55228 21 9V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM14 15.5C14 14.1193 15.1193 13 16.5 13C17.8807 13 19 14.1193 19 15.5V16V17H20C21.1046 17 22 17.8954 22 19C22 20.1046 21.1046 21 20 21H13C11.8954 21 11 20.1046 11 19C11 17.8954 11.8954 17 13 17H14V16V15.5ZM16.5 11C14.142 11 12.2076 12.8136 12.0156 15.122C10.2825 15.5606 9 17.1305 9 19C9 21.2091 10.7909 23 13 23H20C22.2091 23 24 21.2091 24 19C24 17.1305 22.7175 15.5606 20.9844 15.122C20.7924 12.8136 18.858 11 16.5 11Z"
+                          clip-rule="evenodd" fill-rule="evenodd"></path>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="text">
+                    <span>upload foto</span>
+                  </div>
+                  
+                </label> -->
+
+                <label>Foto </label>
+                <div class="input-group col-xs-12">
+                  <input type="file" class="form-control file-upload-info" id="foto" name="foto">
+
+                </div>
+
+                <br><br>
+
+                <button type="submit" class="Btn" id="btn-cadastrar-motorista">
+
+                  <div class="sign"><svg viewBox="0 0 512 512">
+                      <path
+                        d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+                      </path>
+                    </svg></div>
+
+                  <div class="text">Enviar</div>
+                </button>
 
             </div>
+
+            </form>
+
           </div>
         </div>
       </div>
@@ -530,7 +505,7 @@
     </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="/assets/js/script.js"></script>
+  <!-- <script src="/assets/js/script.js"></script> -->
   <script src="/assets/js/core/popper.min.js"></script>
   <script src="/assets/js/core/bootstrap.min.js"></script>
   <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -555,28 +530,57 @@
       const nomeInput = document.querySelector('#nome');
       const cpfInput = document.querySelector('#cpf');
       const fotoInput = document.querySelector('#foto');
-      const idInput = document.querySelector('#id');
 
-      btnCadastrarCliente.addEventListener('click', async () => {
-        const nome = nomeInput.value.trim();
-        const cpf = cpfInput.value.trim();
+      btnCadastrarMotorista.addEventListener('click', async (event) => {
+        event.preventDefault();
 
         try {
-          const data = { nome, cpf }; // payload
-          const response = await axios.post('http://localhost:5000/api/motorista/cadastrar', data);
+          // const nome = nomeInput.value.trim();
+          // const cpf = cpfInput.value.trim();
+          // const data = { nome, cpf }; // payload
+
+          const form = document.querySelector("#form-motorista");
+          const formData = new FormData(form);
+
+          // console.log(data);
+
+          const response = await axios.post('http://localhost:5000/api/motoristas/cadastrar', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          });
+
+          console.log(response.data);
 
           alert('Motorista cadastrado com sucesso!');
           // Limpar os campos após o cadastro, se necessário
-          nomeInput.value = '';
-          cpfInput.value = '';
-          fotoInput.value = '';
-          idInput.value = '';
+          // nomeInput.value = '';
+          // cpfInput.value = '';
+          // fotoInput.value = '';
+          form.reset();
         } catch (error) {
           alert('Erro ao cadastrar motorista', error);
         }
       });
     });
   </script>
+
+  <!-- <script>
+    document.addEventListener("DOMContentLoaded", ()=>{
+      const form = document.querySelector("#form-motorista");
+      form.addEventListener("submit", async(event) =>{
+        event.preventDefault();
+        const formData = new formData(form);
+        if (form.checkValidity()) {
+          try{
+            const response = await axios.post("http://localhost:5000/motoristas/cadastrar",
+            formData)
+          }
+          
+        }
+      })
+    })
+  </script> -->
 </body>
 
 </html>

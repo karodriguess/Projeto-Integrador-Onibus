@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 const clientesRouter = require('./routes/clientes');
-const motoristaRouter = require('./routes/motoristas');
+const motoristasRouter = require('./routes/motoristas');
 const linhasRouter = require('./routes/linhas');
 const onibusRouter = require('./routes/onibus');
 const viagemRouter = require('./routes/viagem');
@@ -29,10 +29,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static('uploads'));
 
 app.use('/', indexRouter);
 app.use('/api/clientes', clientesRouter);
-app.use('/api/motoristas', motoristaRouter);         
+app.use('/api/motoristas', motoristasRouter);         
 app.use('/api/linhas', linhasRouter);
 app.use('/api/onibus', onibusRouter);
 app.use('/api/viagens', viagemRouter);               

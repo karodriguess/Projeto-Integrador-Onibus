@@ -15,7 +15,6 @@ model cliente {
   cpf        String?    @db.Char(11)
   usuario    usuario?   @relation(fields: [usuario_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_cliente_usuario1")
   embarque   embarque[]
-  codCartao       String   @unique(map: "codCartao_UNIQUE") @db.VarChar(45)
 
   @@index([usuario_id], map: "fk_cliente_usuario1_idx")
 }
@@ -34,6 +33,7 @@ model motorista {
   id     Int      @id @default(autoincrement()) @db.UnsignedInt
   nome   String?  @db.VarChar(100)
   foto   String?  @db.VarChar(250)
+  cpf    String?  @db.Char(11)
   viagem viagem[]
 }
 

@@ -260,41 +260,15 @@
                 <table class="table align-items-center mb-0" id="tabela-motoristas">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">foto</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nome</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">CPF</th>
 
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="/assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">João Soares</h6>
-                            <p class="text-xs text-secondary mb-0">joao@gmail.com</p>
-                          </div>
-                        </div>
-                      </td>
-
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Motorista</p>
-                        <p class="text-xs text-secondary mb-0"></p>
-                      </td>
-
-                      <td class="align-middle text-center d-flex align-items-center">
-                        <!-- delete/edite -->
-                        <div class="ms-auto text-end">
-                          <a id="delete" class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i
-                              class="far fa-trash-alt me-2"></i>Delete</a>
-                          <a id="edite" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i
-                              class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar</a>
-                        </div>
-                      </td>
+                    
                   </tbody>
                 </table>
               </div>
@@ -302,8 +276,6 @@
           </div>
         </div>
       </div>
-
-
     </div>
     </div>
     </div>
@@ -445,7 +417,7 @@
  
   <script>
     document.addEventListener('DOMContentLoaded', async () => {
-      const tabelaMotorista = document.getElementById('tabela-motorista');
+      const tabelaMotorista = document.getElementById('tabela-motoristas');
       const tbody = tabelaMotorista.querySelector('tbody');
       tabelaMotorista.querySelector('tbody').innerHTML = '';
 
@@ -453,10 +425,22 @@
         const response = await axios.get('http://localhost:5000/api/motoristas');
         const motoristas = response.data;
 
+        console.log(motoristas);
+
         motoristas.forEach(motorista => {
           const row = document.createElement('tr');
 
+          const avatar = motorista.foto ? `<img src="http://localhost:5000/${motorista.foto}" alt="${motorista.nome}" width="50">` : "<h6>n/a</h6>";
           row.innerHTML = `
+            <td>
+              <div class="d-flex px-2 py-1">
+                <div></div>
+                <div class="d-flex flex-column justify-content-center">                  
+                  ${avatar}
+                </div>
+              </div>
+            </td>
+            
             <td>
               <div class="d-flex px-2 py-1">
                 <div></div>
@@ -465,12 +449,9 @@
                 </div>
               </div>
             </td>
-            <td>
-              <p class="text-xs text-secondary mb-0"></p>
-            </td>
-            <td>
-              <p class="text-xs text-secondary mb-0"></p>
-            </td>
+
+            
+
             <td class="align-middle text-center d-flex align-items-center">
               <span class="text-secondary text-xs font-weight-bold">${motorista.cpf || "n/a"}</span>
               <div class="ms-auto text-end">
@@ -494,7 +475,7 @@
 
       if (confirmDelete) {
         try {
-          await axios.delete(`http://localhost:5000/api/clientes/deletar/${motoristaId}`);
+          await axios.delete(`http://localhost:5000/api/motoristas/deletar/${motoristaId}`);
           alert('Motorista deletado com sucesso!');
           // Remova a linha da tabela
           row.remove();
