@@ -1,0 +1,71 @@
+CREATE DATABASE IF NOT EXISTS smartpass;
+
+-- Utilização do banco de dados
+USE smartpass;
+
+CREATE TABLE cliente (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  usuario_id INT UNSIGNED,
+  nome VARCHAR(100),
+  saldo DECIMAL(8, 2),
+  cpf CHAR(11),
+  codCartao VARCHAR(45) UNIQUE,
+  INDEX fk_cliente_usuario1_idx (usuario_id),
+  FOREIGN KEY (usuario_id) REFERENCES usuario (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE TABLE linha (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100),
+  origem VARCHAR(100),
+  destino VARCHAR(100),
+  horarioPartida TIME(0),
+  duracao SMALLINT UNSIGNED,
+  INDEX idx_nome (nome)
+);
+
+CREATE TABLE motorista (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100),
+  foto VARCHAR(250)
+);
+
+CREATE TABLE onibus (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  placa CHAR(7)
+);
+
+CREATE TABLE viagem (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  linha_id INT UNSIGNED,
+  motorista_id INT UNSIGNED,
+  onibus_id INT UNSIGNED,
+  dataPartida DATETIME(0),
+  dataChegada DATETIME(0),
+  INDEX fk_viagem_linha1_idx (linha_id),
+  INDEX fk_viagem_motorista1_idx (motorista_id),
+  INDEX fk_viagem_onibus1_idx (onibus_id),
+  FOREIGN KEY (linha_id) REFERENCES linha (id) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  FOREIGN KEY (motorista_id) REFERENCES motorista (id) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  FOREIGN KEY (onibus_id) REFERENCES onibus (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE TABLE embarque (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  cliente_id INT UNSIGNED,
+  viagem_id INT UNSIGNED,
+  tarifa DECIMAL(8, 2),
+  horario DATETIME(0),
+  INDEX fk_cliente_has_viagem_cliente1_idx (cliente_id),
+  INDEX fk_cliente_has_viagem_viagem1_idx (viagem_id),
+  FOREIGN KEY (cliente_id) REFERENCES cliente (id) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  FOREIGN KEY (viagem_id) REFERENCES viagem (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE TABLE usuario (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100),
+  email VARCHAR(250),
+  senha VARCHAR(100),
+  token VARCHAR(100)
+);
