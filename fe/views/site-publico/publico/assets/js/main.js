@@ -163,3 +163,23 @@ window.addEventListener('scroll' ,function(){
      
     text.style.marginRight = value * 4 + 'px';
 })
+
+window.onscroll = function() { showScrollButton() };
+
+    function showScrollButton() {
+      const scrollButton = document.getElementById('back-to-top');
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollButton.style.display = "block";
+      } else {
+        scrollButton.style.display = "none";
+      }
+    }
+
+    function scrollToTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+
+
+
