@@ -3,8 +3,8 @@ var router = express.Router();
 
 const { PrismaClient, Prisma } = require('@prisma/client');
 const prisma = new PrismaClient({ errorFormat: 'minimal' });
-const bcrypt = require('bcryptjs');
-const { generateAccessToken, authenticateToken } = require('../auth');
+const bcrypt = require('bcrypt');
+// const { generateAccessToken, authenticateToken } = require('../auth');
 
 
 
@@ -76,33 +76,7 @@ router.get('/:id', async (req, res) => {
 /* POST api/clientes/cadastrar => cadastra um cliente */
 router.post('/cadastrar', async (req, res) => {
 
-  try {
-
-    const dados = req.body
-    console.log(req.body)
-    if (!dados.senha || dados.senha.length < 8) {
-      return res.status(400).json({
-        error: "A senha é obrigatória e deve conter no mínimo 8 caracteres!"
-      });
-    }
-    dados.senha = await bcrypt.hash(dados.senha, 10);
-
-    const cliente = await prisma.cliente.create({
-      data: dados
-    })
-    console.log(cliente)
-    res.status(200).json(cliente)
-
-  } catch (exception) {
-    console.log(exception.message)
-    console.log(exception)
-    let error = exceptionHandler(exception)
-    res.status(error.code).json({
-      error: error.message
-    })
-  }
-
-});
+ 
 
 // POST /api/clientes/login
 router.post('/login', async (req, res) => {
