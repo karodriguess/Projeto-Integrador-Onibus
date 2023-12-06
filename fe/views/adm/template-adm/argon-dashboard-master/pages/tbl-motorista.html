@@ -430,7 +430,7 @@
         motoristas.forEach(motorista => {
           const row = document.createElement('tr');
 
-          const avatar = motorista.foto ? `<img src="http://localhost:5000/${motorista.foto}" alt="${motorista.nome}" width="50">` : "<h6>n/a</h6>";
+          const avatar = motorista.foto ? `<img src="http://localhost:5000/${motorista.foto}" alt="${motorista.nome}" width="70">` : "<h6>n/a</h6>";
           row.innerHTML = `
             <td>
               <div class="d-flex px-2 py-1">
@@ -449,8 +449,6 @@
                 </div>
               </div>
             </td>
-
-            
 
             <td class="align-middle text-center d-flex align-items-center">
               <span class="text-secondary text-xs font-weight-bold">${motorista.cpf || "n/a"}</span>
