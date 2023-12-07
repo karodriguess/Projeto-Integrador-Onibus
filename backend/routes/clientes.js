@@ -3,8 +3,6 @@ var router = express.Router();
 
 const { PrismaClient, Prisma } = require('@prisma/client');
 const prisma = new PrismaClient({ errorFormat: 'minimal' });
-const bcrypt = require('bcrypt');
-// const { generateAccessToken, authenticateToken } = require('../auth');
 
 
 
@@ -68,49 +66,6 @@ router.get('/:id', async (req, res) => {
   } catch (exception) {
     let error = exceptionHandler(exception)
     res.status(error.code).json({
-      error: error.message
-    })
-  }
-});
-
-/* POST api/clientes/cadastrar => cadastra um cliente */
-router.post('/cadastrar', async (req, res) => {
-
- 
-
-// POST /api/clientes/login
-router.post('/login', async (req, res) => {
-  try {
-    const dados = req.body;
-    if (!'senha' in dados || !'cpf' in dados) {
-      console.log('erro senha cpf')
-      return res.status(401).json({
-        error: "CPF e senha são obrigatórios"
-      });
-    }
-    const cliente = await prisma.cliente.findUniqueOrThrow({
-      where: {
-        cpf: dados.cpf
-      }
-    });
-    const passwordCheck = await bcrypt.compare(
-      dados.senha, cliente.senha
-    );
-    if (!passwordCheck) {
-      console.log('password check')
-      return res.status(401).json({
-        error: "CPF e/ou senha incorreto(s)"
-      });
-    }
-    delete cliente.senha;
-    const jwt = generateAccessToken(cliente);
-    cliente.accessToken = jwt;
-    res.json(cliente);
-  }
-  catch (exception) {
-    console.log(exception)
-    let error = exceptionHandler(exception);
-    return res.status(error.code).json({
       error: error.message
     })
   }
@@ -200,37 +155,6 @@ router.get('/:id/viagens', async (req, res) => {
     })
   }
 })
-
-
-router.patch('/novasenha', async (req, res) => {
-
-
-
-  try {
-    const cpf = req.body.cpf
-    var novasenha = req.body.novasenha
-
-    novasenha = await bcrypt.hash(novasenha, 10);
-
-    const cliente = await prisma.cliente.update({
-      data: {
-        senha: novasenha
-      },
-      where: {
-        cpf: cpf
-      }
-    })
-
-    res.json(cliente)
-
-  } catch (exception) {
-    let error = exceptionHandler(exception)
-    res.status(error.code).json({
-      error: error.message
-    })
-  }
-})
-
 
 
 router.patch('/onibusComum', async (req, res) => {
