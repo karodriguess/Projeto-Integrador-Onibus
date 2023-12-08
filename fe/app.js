@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-const onibusRouter = require('./routes/onibus/onibus');
+
 const usersRouter = require('./routes/users');
 const adminRouter = require('./routes/admin/admin');
 const catracaRouter = require('./routes/app/catraca');
@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/onibus', onibusRouter);
+
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
 app.use('/catraca', catracaRouter);

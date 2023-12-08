@@ -23,6 +23,53 @@ function exceptionHandler(e) {
   return error
 }
 
+/* POST api/clientes/cadastrar => cadastra um cliente */
+router.post('/cadastrar', async (req, res) => {
+  try {
+    const dados = req.body;
+
+    // // Verifica se nome e cpf estão presentes nos dados recebidos
+    // if (!('nome' in dados) || !('cpf' in dados)) {
+    //   console.log('erro nome cpf');
+    //   return res.status(400).json({
+    //     error: "Nome e CPF são obrigatórios"
+    //   });
+    // }
+
+    // // Verifica se o cliente já está cadastrado pelo CPF (exemplo)
+    // const clienteExistente = await prisma.cliente.findFirst({
+    //   where: {
+    //     cpf: dados.cpf
+    //   }
+    // });
+
+    // if (clienteExistente) {
+    //   return res.status(400).json({
+    //     error: "Cliente já cadastrado com este CPF"
+    //   });
+    // }
+
+    // Adiciona o novo cliente ao banco de dados (exemplo)
+    const novoCliente = await prisma.cliente.create({
+      data: {
+        nome: dados.nome,
+        cpf: dados.cpf,
+        codCartao: dados.codCartao ? dados.codCartao : null // Força o campo a ser nulo se não estiver presente
+      }
+    });
+    
+
+    // Exemplo de resposta bem-sucedida
+    res.json({ message: 'Cliente cadastrado com sucesso!', cliente: novoCliente });
+  } catch (exception) {
+    console.log(exception);
+    let error = exceptionHandler(exception);
+    return res.status(error.code).json({
+      error: error.message
+    });
+  }
+});
+
 /* GET api/clientes => lista todos os clientes */
 router.get('/', async (req, res) => {
   try {

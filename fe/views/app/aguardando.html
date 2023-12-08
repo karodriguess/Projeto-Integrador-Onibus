@@ -1,25 +1,64 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Aguardando</title>
-
-    <link rel="stylesheet" href="/css/style.css">
+    <title>Primeira Interface</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body class="ready">
+<body>
+    <div class="catraca">
+        <h3>APROXIME O CARTÃO</h3>
+        <img src="../img/cartao.png" height="80px" width="80px" alt="cartão">
+        <div class="passenger-code">
+            <label for="codCartao">Código do cartão:</label>
+            <input type="text" id="codCartao" name="codCartao" placeholder="Digite o código..."
+                onchange="leituraCartao()">
+            <!-- oninput é a cada mudança no campo, onchange só dispara após o enter -->
+            <button id="submit">Enviar</button>
+        </div>
+    </div>
 
-    <h1>AGUARDANDO</h1>
-
-    <input type="text" name="clienteId" id="clienteId" placeholder="Informar o código do cartão." onchange="lerCartao()">
-   
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    
-    <script defer src="/js/app/aguardando.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            const codCartao = document.querySelector("#codCartao");
+            codCartao.focus();
+        });
+
+        async function leituraCartao() {
+
+            try {
+                // Obtenha o valor do input
+                const codCartao = document.querySelector("#codCartao").value;
+
+                // Faça a solicitação POST usando Axios
+                const url = "http://localhost:5000/api/embarques/cadastrar";
+                const data = { codCartao };
+                const response = await axios.post(url, data);
+
+                console.log(response.data);
+
+                // Se a solicitação for bem-sucedida, redirecione para a página de sucesso
+                window.location.href = "http://localhost:3000/catraca/sucesso";
+            } catch (error) {
+                console.error("Erro ao cadastrar embarque:", error);
+
+                // Se o erro for relacionado ao cliente não encontrado, redirecione para a página de aviso indicando a causa
+                if (error.response && error.response.status === 404) {
+                    window.location.href = "http://localhost:3000/catraca/aviso?causa=cliente-nao-encontrado";
+                } else if (error.response && error.response.status === 402) {
+                    // Se o erro for relacionado a saldo insuficiente, redirecione para a página de aviso indicando a causa
+                    window.location.href = "http://localhost:3000/catraca/aviso?causa=saldo-insuficiente";
+                } else {
+                    // Para outros erros, redirecione para a página de erro
+                    window.location.href = "http://localhost:3000/catraca/erro";
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 // Rota para cadastrar embarque
 router.post('/cadastrar', async (req, res, next) => {
-  const clienteId = Number(req.body.clienteId);
+  const codCartao = req.body.codCartao;
   const valorDaPassagem = 5;  // Valor padrão da passagem
 
   try {
@@ -13,7 +13,7 @@ router.post('/cadastrar', async (req, res, next) => {
     const novoEmbarque = await prisma.$transaction(async (prisma) => {
       // Consulte a tabela cliente para obter informações sobre a isenção e o saldo
       const cliente = await prisma.cliente.findUnique({
-        where: { id: clienteId },
+        where: { codCartao: codCartao },
       });
 
       // Verifique se o cliente existe
@@ -22,29 +22,29 @@ router.post('/cadastrar', async (req, res, next) => {
       }
 
       // Verifique se o cliente tem saldo suficiente
-      if (cliente.isencao !== 1 && cliente.saldo < valorDaPassagem) {
-        throw new Error('Saldo insuficiente');
-      }
+      // if (cliente.isencao !== 1 && cliente.saldo < valorDaPassagem) {
+      //   throw new Error('Saldo insuficiente');
+      // }
 
       // Execute a inserção no banco de dados usando Prisma
       const embarque = await prisma.embarque.create({
         data: {
-          cliente_id: clienteId,
+          cliente_id: cliente.id,
           horario: new Date(),
         },
       });
 
       // Atualize o saldo do cliente se necessário usando decrement
-      if (cliente.isencao !== 1) {
-        await prisma.cliente.update({
-          where: { id: clienteId },
-          data: {
-            saldo: {
-              decrement: valorDaPassagem,
-            },
+      // if (cliente.isencao !== 1) {
+      await prisma.cliente.update({
+        where: { id: cliente.id },
+        data: {
+          saldo: {
+            decrement: valorDaPassagem,
           },
-        });
-      }
+        },
+      });
+      // }
 
       return embarque;
     });
@@ -60,7 +60,7 @@ router.post('/cadastrar', async (req, res, next) => {
     } else {
       res.status(500).json({ error: 'Erro interno do servidor' });
     }
-  } 
+  }
 });
 
 module.exports = router;
