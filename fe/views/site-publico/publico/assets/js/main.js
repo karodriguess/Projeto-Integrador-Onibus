@@ -1,8 +1,6 @@
 (function() {
     
     "use strict";
-    
-    //===== Prealoder
 
     window.onload = function() {
         window.setTimeout(fadeout, 500);
@@ -14,9 +12,7 @@
     }
 
     
-    /*=====================================
-    Sticky
-    ======================================= */
+    /*Sticky */
     window.onscroll = function () {
         var header_navbar = document.getElementById("header_navbar");
         var logo = document.querySelector("img#logo");
@@ -33,15 +29,13 @@
 
 
         // show or hide the back-top-top button
-        var backToTo = document.querySelector(".back-to-top");
+        var backToTop = document.querySelector("back-to-top");
         if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            backToTo.style.display = "block";
+            backToTop.style.display = "block";
         } else {
-            backToTo.style.display = "none";
+            backToTop.style.display = "none";
         }
     };
-
-    // Get the navbar
 
 
     // for menu scroll 
@@ -57,7 +51,7 @@
         });
     });
 
-    // section menu active
+    // section menu 
     function onScroll(event) {
         var sections = document.querySelectorAll('.page-scroll');
         var scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
@@ -79,7 +73,7 @@
     window.document.addEventListener('scroll', onScroll);
 
 
-    //===== close navbar-collapse when a  clicked
+    // fechar nav-bar  quando clicado
     let navbarToggler = document.querySelector(".navbar-toggler");    
     var navbarCollapse = document.querySelector(".navbar-collapse");
 
@@ -95,7 +89,6 @@
     );
 
 
-    //===== glide tiny for testimonial
     
     tns({
         container: '.testimonial_active',
@@ -108,7 +101,6 @@
         controls: false,
     });
 
-    //WOW Scroll Spy
     var wow = new WOW({
         //disabled for mobile
         mobile: false
@@ -116,7 +108,7 @@
     wow.init();
 
 
-        // ====== scroll top js
+        // scroll top js
     function scrollTo(element, to = 0, duration= 1000) {
 
         const start = element.scrollTop;
@@ -147,11 +139,6 @@
         t--;
         return -c/2 * (t*(t-2) - 1) + b;
     };
-
-    document.querySelector('.back-to-top').onclick = function () {
-        scrollTo(document.documentElement); 
-    }
-
     
 })();
 
@@ -167,12 +154,12 @@ window.addEventListener('scroll' ,function(){
 window.onscroll = function() { showScrollButton() };
 
     function showScrollButton() {
-      const scrollButton = document.getElementById('back-to-top');
+      const scrollButton = document.getElementById('.back-to-top');
       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         scrollButton.style.display = "block";
       } else {
         scrollButton.style.display = "none";
-      }
+      } 
     }
 
     function scrollToTop() {
@@ -180,6 +167,7 @@ window.onscroll = function() { showScrollButton() };
       document.documentElement.scrollTop = 0;
     }
 
+   
 
 
 
