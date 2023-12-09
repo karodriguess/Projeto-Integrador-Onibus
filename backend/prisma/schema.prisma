@@ -13,7 +13,6 @@ model cliente {
   nome       String?    @db.VarChar(100)
   saldo      Decimal?   @db.Decimal(8, 2)
   cpf        String?    @db.Char(11)
-  usuario    usuario?   @relation(fields: [usuario_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_cliente_usuario1")
   embarque   embarque[]
   codCartao       String?   @db.VarChar(45)
 }
