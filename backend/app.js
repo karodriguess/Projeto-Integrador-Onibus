@@ -16,6 +16,7 @@ const onibusRouter = require('./routes/onibus');
 const viagemRouter = require('./routes/viagem');
 const embarquesRouter = require("./routes/embarques");
 const recargaclientesRouter = require("./routes/recargaclientes");
+const indexRouter = require("./routes/index");
 
 var app = express();
 
@@ -39,6 +40,7 @@ app.use('/api/onibus', onibusRouter);
 app.use('/api/viagens', viagemRouter);
 app.use('/api/embarques', embarquesRouter);
 app.use('/api/recargaclientes', recargaclientesRouter);
+app.use('/api/index', indexRouter);
 
 app.use(function(req, res, next) {
   next(createError(404));

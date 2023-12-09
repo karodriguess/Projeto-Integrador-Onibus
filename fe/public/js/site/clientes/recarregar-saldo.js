@@ -2,7 +2,7 @@ const recarregarSaldo = async () => {
   try {
     const cpf = document.querySelector("#cpf").value;
     const valorRecarga = document.querySelector("#valorRecarga").value;
-    const data = { cpf, valorRecarga };
+    const data = { nome, cpf, valorRecarga };
 
     console.log(data);
 

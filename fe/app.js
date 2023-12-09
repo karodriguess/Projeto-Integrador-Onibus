@@ -9,6 +9,7 @@ const usersRouter = require('./routes/users');
 const adminRouter = require('./routes/admin/admin');
 const catracaRouter = require('./routes/app/catraca');
 const clientesRouter = require('./routes/site/clientes');
+const indexRouter = require('./routes/site/index');
 
 var app = express();
 
@@ -27,6 +28,8 @@ app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
 app.use('/catraca', catracaRouter);
 app.use('/recargaclientes', clientesRouter);
+//app.use('/recarga', recargaRouter);
+app.use('/index', indexRouter);
 
 app.use(function(req, res, next) {
   next(createError(404));
