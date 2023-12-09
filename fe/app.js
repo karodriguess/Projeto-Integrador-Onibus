@@ -4,13 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-// var expressLayouts = require('express-ejs-layouts');
 
-// var indexRouter = require('./routes/index');
-// const siteRouter = require('./routes/site/site');
-var usersRouter = require('./routes/users');
-var adminRouter = require('./routes/admin/admin.js');
-const onibusRouter = require('./routes/onibus/onibus')
+const usersRouter = require('./routes/users');
+const adminRouter = require('./routes/admin/admin');
+const catracaRouter = require('./routes/app/catraca');
+const clientesRouter = require('./routes/site/clientes');
 
 var app = express();
 
@@ -18,33 +16,26 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// app.use(expressLayouts);
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', indexRouter);
+
 app.use('/users', usersRouter);
-// app.use('/', siteRouter);
-app.use('/admin', adminRouter)
-app.use('/onibus', onibusRouter)
+app.use('/admin', adminRouter);
+app.use('/catraca', catracaRouter);
+app.use('/recargaclientes', clientesRouter);
 
-
-// catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
   res.status(err.status || 500);
   res.render('error');
 });

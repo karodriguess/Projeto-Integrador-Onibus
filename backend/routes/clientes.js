@@ -3,8 +3,6 @@ var router = express.Router();
 
 const { PrismaClient, Prisma } = require('@prisma/client');
 const prisma = new PrismaClient({ errorFormat: 'minimal' });
-const bcrypt = require('bcryptjs');
-const { generateAccessToken, authenticateToken } = require('../auth');
 
 
 
@@ -24,6 +22,53 @@ function exceptionHandler(e) {
 
   return error
 }
+
+/* POST api/clientes/cadastrar => cadastra um cliente */
+router.post('/cadastrar', async (req, res) => {
+  try {
+    const dados = req.body;
+
+    // // Verifica se nome e cpf estão presentes nos dados recebidos
+    // if (!('nome' in dados) || !('cpf' in dados)) {
+    //   console.log('erro nome cpf');
+    //   return res.status(400).json({
+    //     error: "Nome e CPF são obrigatórios"
+    //   });
+    // }
+
+    // // Verifica se o cliente já está cadastrado pelo CPF (exemplo)
+    // const clienteExistente = await prisma.cliente.findFirst({
+    //   where: {
+    //     cpf: dados.cpf
+    //   }
+    // });
+
+    // if (clienteExistente) {
+    //   return res.status(400).json({
+    //     error: "Cliente já cadastrado com este CPF"
+    //   });
+    // }
+
+    // Adiciona o novo cliente ao banco de dados (exemplo)
+    const novoCliente = await prisma.cliente.create({
+      data: {
+        nome: dados.nome,
+        cpf: dados.cpf,
+        codCartao: dados.codCartao ? dados.codCartao : null // Força o campo a ser nulo se não estiver presente
+      }
+    });
+    
+
+    // Exemplo de resposta bem-sucedida
+    res.json({ message: 'Cliente cadastrado com sucesso!', cliente: novoCliente });
+  } catch (exception) {
+    console.log(exception);
+    let error = exceptionHandler(exception);
+    return res.status(error.code).json({
+      error: error.message
+    });
+  }
+});
 
 /* GET api/clientes => lista todos os clientes */
 router.get('/', async (req, res) => {
@@ -68,75 +113,6 @@ router.get('/:id', async (req, res) => {
   } catch (exception) {
     let error = exceptionHandler(exception)
     res.status(error.code).json({
-      error: error.message
-    })
-  }
-});
-
-/* POST api/clientes/cadastrar => cadastra um cliente */
-router.post('/cadastrar', async (req, res) => {
-
-  try {
-
-    const dados = req.body
-    console.log(req.body)
-    if (!dados.senha || dados.senha.length < 8) {
-      return res.status(400).json({
-        error: "A senha é obrigatória e deve conter no mínimo 8 caracteres!"
-      });
-    }
-    dados.senha = await bcrypt.hash(dados.senha, 10);
-
-    const cliente = await prisma.cliente.create({
-      data: dados
-    })
-    console.log(cliente)
-    res.status(200).json(cliente)
-
-  } catch (exception) {
-    console.log(exception.message)
-    console.log(exception)
-    let error = exceptionHandler(exception)
-    res.status(error.code).json({
-      error: error.message
-    })
-  }
-
-});
-
-// POST /api/clientes/login
-router.post('/login', async (req, res) => {
-  try {
-    const dados = req.body;
-    if (!'senha' in dados || !'cpf' in dados) {
-      console.log('erro senha cpf')
-      return res.status(401).json({
-        error: "CPF e senha são obrigatórios"
-      });
-    }
-    const cliente = await prisma.cliente.findUniqueOrThrow({
-      where: {
-        cpf: dados.cpf
-      }
-    });
-    const passwordCheck = await bcrypt.compare(
-      dados.senha, cliente.senha
-    );
-    if (!passwordCheck) {
-      console.log('password check')
-      return res.status(401).json({
-        error: "CPF e/ou senha incorreto(s)"
-      });
-    }
-    delete cliente.senha;
-    const jwt = generateAccessToken(cliente);
-    cliente.accessToken = jwt;
-    res.json(cliente);
-  }
-  catch (exception) {
-    console.log(exception)
-    let error = exceptionHandler(exception);
-    return res.status(error.code).json({
       error: error.message
     })
   }
@@ -226,37 +202,6 @@ router.get('/:id/viagens', async (req, res) => {
     })
   }
 })
-
-
-router.patch('/novasenha', async (req, res) => {
-
-
-
-  try {
-    const cpf = req.body.cpf
-    var novasenha = req.body.novasenha
-
-    novasenha = await bcrypt.hash(novasenha, 10);
-
-    const cliente = await prisma.cliente.update({
-      data: {
-        senha: novasenha
-      },
-      where: {
-        cpf: cpf
-      }
-    })
-
-    res.json(cliente)
-
-  } catch (exception) {
-    let error = exceptionHandler(exception)
-    res.status(error.code).json({
-      error: error.message
-    })
-  }
-})
-
 
 
 router.patch('/onibusComum', async (req, res) => {

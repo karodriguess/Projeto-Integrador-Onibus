@@ -1307,8 +1307,6 @@ p {
 }
 }
 
-
-
 .single_blog.blog_2 .blog_content .blog_title a {
   font-size: 20px;
 }
@@ -1630,6 +1628,7 @@ button {
 }
 
 .flip-card-inner {
+  cursor: pointer;
   position: relative;
   width: 100%;
   height: 100%;
@@ -1638,9 +1637,9 @@ button {
   transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
+ .flip-card:hover .flip-card-inner {
+  transform: translateY(-15px);
+} 
 
 .flip-card-front, .flip-card-back {
   box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
@@ -1648,8 +1647,6 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-   /* width: 100%;
-  height: 100%;  */
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 1rem;

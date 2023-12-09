@@ -15,9 +15,8 @@ model cliente {
   cpf        String?    @db.Char(11)
   usuario    usuario?   @relation(fields: [usuario_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_cliente_usuario1")
   embarque   embarque[]
-  codCartao       String   @unique(map: "codCartao_UNIQUE") @db.VarChar(45)
-  contador        Int?     @default(0)
-
+  codCartao       String?   @db.VarChar(45)
+  
   @@index([usuario_id], map: "fk_cliente_usuario1_idx")
 }
 
@@ -79,7 +78,5 @@ model usuario {
   id      Int       @id @default(autoincrement()) @db.UnsignedInt
   nome    String?   @db.VarChar(100)
   email   String?   @db.VarChar(250)
-  senha   String?   @db.VarChar(100)
-  token   String?   @db.VarChar(100)
   cliente cliente[]
 }
