@@ -1,12 +1,12 @@
 const recarregarSaldo = async () => {
   try {
-    const clienteId = document.querySelector("#clienteId").value;
+    const cpf = document.querySelector("#cpf").value;
     const valorRecarga = document.querySelector("#valorRecarga").value;
-    const data = { clienteId, valorRecarga };
+    const data = { cpf, valorRecarga };
 
     console.log(data);
 
-    const url = "http://localhost:3001/api/recargaclientes/recarregar-saldo";
+    const url = "http://localhost:5000/api/recargaclientes/recarregar-saldo";
     const response = await axios.post(url, data);
 
     // Se a requisição for bem-sucedida, você pode lidar com a resposta aqui

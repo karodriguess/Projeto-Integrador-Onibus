@@ -12,7 +12,7 @@ router.post('/cadastrar', async (req, res, next) => {
     // Use uma transação Prisma para garantir atomicidade
     const novoEmbarque = await prisma.$transaction(async (prisma) => {
       // Consulte a tabela cliente para obter informações sobre a isenção e o saldo
-      const cliente = await prisma.cliente.findUnique({
+      const cliente = await prisma.cliente.findFirst({
         where: { codCartao: codCartao },
       });
 

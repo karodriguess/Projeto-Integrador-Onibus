@@ -346,12 +346,7 @@
                 <br>
                 <!-- upload -->
                 <p class="text-uppercase text-sm" id="id">Adicione foto do motorista:</p>
-<<<<<<< HEAD
                <label>Foto </label>
-=======
-
-                <label>Foto </label>
->>>>>>> 1421bc960b87d567706dd7de81519d371de455b0
                 <div class="input-group col-xs-12">
                   <input type="file" class="form-control file-upload-info" id="foto" name="foto">
 
@@ -519,15 +514,10 @@
         event.preventDefault();
 
         try {
-<<<<<<< HEAD
 
           const form = document.querySelector("#form-motorista");
           const formData = new FormData(form);
-=======
-          const form = document.querySelector("#form-motorista");
-          const formData = new FormData(form);
 
->>>>>>> 1421bc960b87d567706dd7de81519d371de455b0
           const response = await axios.post('http://localhost:5000/api/motoristas/cadastrar', formData, {
             headers: {
               'Content-Type': 'multipart/form-data'
@@ -537,10 +527,6 @@
           console.log(response.data);
 
           alert('Motorista cadastrado com sucesso!');
-<<<<<<< HEAD
-=======
-         
->>>>>>> 1421bc960b87d567706dd7de81519d371de455b0
           form.reset();
         } catch (error) {
           alert('Erro ao cadastrar motorista', error);
@@ -548,10 +534,6 @@
       });
     });
   </script>
-<<<<<<< HEAD
-=======
-
->>>>>>> 1421bc960b87d567706dd7de81519d371de455b0
 </body>
 
 </html>

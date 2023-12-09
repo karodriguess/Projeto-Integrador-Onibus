@@ -9,12 +9,12 @@ datasource db {
 
 model cliente {
   id         Int        @id @default(autoincrement()) @db.UnsignedInt
-  usuario_id Int?       @db.UnsignedInt
   nome       String?    @db.VarChar(100)
   saldo      Decimal?   @db.Decimal(8, 2)
   cpf        String?    @db.Char(11)
+  codCartao  String?    @db.VarChar(45)
+  usuario_id Int?       @db.UnsignedInt
   embarque   embarque[]
-  codCartao       String?   @db.VarChar(45)
 }
 
 model linha {
@@ -53,9 +53,9 @@ model viagem {
   motorista    motorista? @relation(fields: [motorista_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_viagem_motorista1")
   onibus       onibus?    @relation(fields: [onibus_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_viagem_onibus1")
 
-  @@index([linha_id], map: "fk_viagem_linha1_idx")
-  @@index([motorista_id], map: "fk_viagem_motorista1_idx")
-  @@index([onibus_id], map: "fk_viagem_onibus1_idx")
+  @@index([linha_id], map: "fk_viagem_linha1")
+  @@index([motorista_id], map: "fk_viagem_motorista1")
+  @@index([onibus_id], map: "fk_viagem_onibus1")
 }
 
 model embarque {
@@ -68,5 +68,5 @@ model embarque {
   viagem     viagem?   @relation(fields: [viagem_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_cliente_has_viagem_viagem1")
 
   @@index([cliente_id], map: "fk_cliente_has_viagem_cliente1_idx")
-  @@index([viagem_id], map: "fk_cliente_has_viagem_viagem1_idx")
+  @@index([viagem_id], map: "fk_cliente_has_viagem_viagem1")
 }
