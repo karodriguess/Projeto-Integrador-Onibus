@@ -5,6 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Primeira Interface</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .catraca {
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin: 20px; /* Adicionei uma margem para espaçamento */
+        }
+
+        .passenger-code {
+            margin-top: 20px;
+        }
+    </style>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -14,8 +36,7 @@
         <img src="../img/cartao.png" height="80px" width="80px" alt="cartão">
         <div class="passenger-code">
             <label for="codCartao">Código do cartão:</label>
-            <input type="text" id="codCartao" name="codCartao" placeholder="Digite o código..."
-                onchange="leituraCartao()">
+            <input type="text" id="codCartao" name="codCartao" placeholder="Digite o código..." onchange="leituraCartao()">
             <!-- oninput é a cada mudança no campo, onchange só dispara após o enter -->
             <button id="submit">Enviar</button>
         </div>
@@ -48,10 +69,10 @@
 
                 // Se o erro for relacionado ao cliente não encontrado, redirecione para a página de aviso indicando a causa
                 if (error.response && error.response.status === 404) {
-                    window.location.href = "http://localhost:3000/catraca/aviso?causa=cliente-nao-encontrado";
+                    window.location.href = "http://localhost:3000/catraca/erro";
                 } else if (error.response && error.response.status === 402) {
                     // Se o erro for relacionado a saldo insuficiente, redirecione para a página de aviso indicando a causa
-                    window.location.href = "http://localhost:3000/catraca/aviso?causa=saldo-insuficiente";
+                    window.location.href = "http://localhost:3000/catraca/erro";
                 } else {
                     // Para outros erros, redirecione para a página de erro
                     window.location.href = "http://localhost:3000/catraca/erro";

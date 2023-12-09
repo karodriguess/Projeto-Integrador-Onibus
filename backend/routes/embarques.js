@@ -21,10 +21,10 @@ router.post('/cadastrar', async (req, res, next) => {
         throw new Error('Cliente não encontrado');
       }
 
-      // Verifique se o cliente tem saldo suficiente
-      // if (cliente.isencao !== 1 && cliente.saldo < valorDaPassagem) {
-      //   throw new Error('Saldo insuficiente');
-      // }
+      //Verifique se o cliente tem saldo suficiente
+      if (cliente.saldo < valorDaPassagem) {
+        throw new Error('Saldo insuficiente');
+       }
 
       // Execute a inserção no banco de dados usando Prisma
       const embarque = await prisma.embarque.create({
@@ -36,14 +36,14 @@ router.post('/cadastrar', async (req, res, next) => {
 
       // Atualize o saldo do cliente se necessário usando decrement
       // if (cliente.isencao !== 1) {
-      await prisma.cliente.update({
-        where: { id: cliente.id },
-        data: {
-          saldo: {
-            decrement: valorDaPassagem,
-          },
-        },
-      });
+      //await prisma.cliente.update({
+        //where: { id: cliente.id },
+        //data: {
+          //saldo: {
+            //decrement: valorDaPassagem,
+         // },
+       // },
+      //});
       // }
 
       return embarque;

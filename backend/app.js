@@ -16,7 +16,7 @@ const onibusRouter = require('./routes/onibus');
 const viagemRouter = require('./routes/viagem');
 const embarquesRouter = require("./routes/embarques");
 const recargaclientesRouter = require("./routes/recargaclientes");
-const indexRouter = require("./routes/index");
+
 
 var app = express();
 
