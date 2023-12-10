@@ -16,8 +16,6 @@ model cliente {
   usuario    usuario?   @relation(fields: [usuario_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_cliente_usuario1")
   embarque   embarque[]
   codCartao       String?   @db.VarChar(45)
-  
-  @@index([usuario_id], map: "fk_cliente_usuario1_idx")
 }
 
 model linha {
@@ -72,11 +70,4 @@ model embarque {
 
   @@index([cliente_id], map: "fk_cliente_has_viagem_cliente1_idx")
   @@index([viagem_id], map: "fk_cliente_has_viagem_viagem1_idx")
-}
-
-model usuario {
-  id      Int       @id @default(autoincrement()) @db.UnsignedInt
-  nome    String?   @db.VarChar(100)
-  email   String?   @db.VarChar(250)
-  cliente cliente[]
 }
