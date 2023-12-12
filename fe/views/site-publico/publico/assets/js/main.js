@@ -12,7 +12,7 @@
     }
 
     
-    /*Sticky */
+    
     window.onscroll = function () {
         var header_navbar = document.getElementById("header_navbar");
         var logo = document.querySelector("img#logo");
@@ -28,7 +28,7 @@
 
 
 
-        // show or hide the back-top-top button
+        //  back-top-top button
         var backToTop = document.querySelector("back-to-top");
         if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
             backToTop.style.display = "block";
@@ -38,7 +38,7 @@
     };
 
 
-    // for menu scroll 
+
     var pageLink = document.querySelectorAll('.page-scroll');
     
     pageLink.forEach(elem => {
@@ -87,19 +87,6 @@
             navbarCollapse.classList.remove('show')
         })
     );
-
-
-    
-    tns({
-        container: '.testimonial_active',
-        items: 1,
-        slideBy: 'page',
-        autoplay: false,
-        mouseDrag: true,
-        gutter: 0,
-        nav: true,
-        controls: false,
-    });
 
     var wow = new WOW({
         //disabled for mobile
